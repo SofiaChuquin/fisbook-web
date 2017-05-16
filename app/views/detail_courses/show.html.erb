@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firs practice:</strong>
+  <%= @detail_course.firs_practice %>
+</p>
+
+<p>
+  <strong>Second practice:</strong>
+  <%= @detail_course.second_practice %>
+</p>
+
+<p>
+  <strong>Third practice:</strong>
+  <%= @detail_course.third_practice %>
+</p>
+
+<p>
+  <strong>First exam:</strong>
+  <%= @detail_course.first_exam %>
+</p>
+
+<p>
+  <strong>Second exam:</strong>
+  <%= @detail_course.second_exam %>
+</p>
+
+<p>
+  <strong>Permanent:</strong>
+  <%= @detail_course.permanent %>
+</p>
+
+<p>
+  <strong>Average:</strong>
+  <%= @detail_course.average %>
+</p>
+
+<%= link_to 'Edit', edit_detail_course_path(@detail_course) %> |
+<%= link_to 'Back', detail_courses_path %>

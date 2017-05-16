@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firs_practice: 1
+  second_practice: 1
+  third_practice: 1
+  first_exam: 1
+  second_exam: 1
+  permanent: 1
+  average: 1.5
+
+two:
+  firs_practice: 1
+  second_practice: 1
+  third_practice: 1
+  first_exam: 1
+  second_exam: 1
+  permanent: 1
+  average: 1.5
