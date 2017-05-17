@@ -23,6 +23,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # authentication
 gem 'devise'
+# email validation
+gem 'validates_email_format_of'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
