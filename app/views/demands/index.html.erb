@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Demands</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Body</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @demands.each do |demand| %>
+      <tr>
+        <td><%= demand.subject %></td>
+        <td><%= demand.body %></td>
+        <td><%= demand.image %></td>
+        <td><%= link_to 'Show', demand %></td>
+        <td><%= link_to 'Edit', edit_demand_path(demand) %></td>
+        <td><%= link_to 'Destroy', demand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Demand', new_demand_path %>

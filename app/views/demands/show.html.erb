@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @demand.subject %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @demand.body %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @demand.image %>
+</p>
+
+<%= link_to 'Edit', edit_demand_path(@demand) %> |
+<%= link_to 'Back', demands_path %>

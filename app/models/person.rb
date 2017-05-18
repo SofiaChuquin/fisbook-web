@@ -8,5 +8,5 @@ class Person < ApplicationRecord
   validates :email, email_format: { message: 'Correo no válido.' }
   validates :gender, inclusion: { in: %w(Masculino Femenino), message: 'Género no válido.' }
   validates :state, inclusion: { in: %w(Activo Inactivo), message: 'Estado no válido.' }
-  validates :rol, inclusion: { in: %w(Estudiante Docente Secretario(a)), message: 'Rol no válido.' }
+  validates :rol, inclusion: { in: %w(Estudiante Docente Directivo), message: 'Rol no válido.' }
 end
