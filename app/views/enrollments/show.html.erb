@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Voucher:</strong>
   <%= @enrollment.voucher %>
 </p>
 
 <p>
-  <strong>Valid:</strong>
-  <%= @enrollment.valid %>
+  <strong>Active:</strong>
+  <%= @enrollment.active %>
 </p>
 
 <%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |

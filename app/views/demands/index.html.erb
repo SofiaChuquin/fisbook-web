@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Demands</h1>
 
 <table>
@@ -7,7 +5,7 @@
     <tr>
       <th>Subject</th>
       <th>Body</th>
-      <th>Image</th>
+      <th>Document</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +15,7 @@
       <tr>
         <td><%= demand.subject %></td>
         <td><%= demand.body %></td>
-        <td><%= demand.image %></td>
+        <td><%= demand.document %></td>
         <td><%= link_to 'Show', demand %></td>
         <td><%= link_to 'Edit', edit_demand_path(demand) %></td>
         <td><%= link_to 'Destroy', demand, method: :delete, data: { confirm: 'Are you sure?' } %></td>

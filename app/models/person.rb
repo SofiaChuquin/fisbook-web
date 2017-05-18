@@ -1,6 +1,7 @@
 class Person < ApplicationRecord
   has_many :students, foreign_key: 'people_id'
   has_many :teachers, foreign_key: 'people_id'
+  has_many :executives, foreign_key: 'people_id'
 
   validates :lastname, :name, presence: true
   validates :dni, presence: true, uniqueness: true, length: { maximum: 8 }, numericality: { only_integer: true }

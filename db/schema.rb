@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20170518003703) do
 
   create_table "enrollments", force: :cascade do |t|
     t.string   "voucher"
-    t.boolean  "valid",      default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "executives", force: :cascade do |t|

@@ -69,6 +69,6 @@ class DetailCoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def detail_course_params
-      params.require(:detail_course).permit(:firs_practice, :second_practice, :third_practice, :first_exam, :second_exam, :permanent, :average)
+      params.require(:detail_course).permit(:first_practice, :second_practice, :third_practice, :first_exam, :second_exam, :permanent, :unique_exam, :defer_exam, :average)
     end
 end

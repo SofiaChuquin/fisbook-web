@@ -69,6 +69,6 @@ class DemandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def demand_params
-      params.require(:demand).permit(:subject, :body, :image)
+      params.require(:demand).permit(:subject, :body, :document)
     end
 end

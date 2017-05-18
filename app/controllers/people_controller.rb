@@ -31,8 +31,16 @@ class PeopleController < ApplicationController
       if @person.save
         format.html { redirect_to @person, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
-        if person_params[:rol] == 'estudiante'
-          Student.create(turn: 'mañana', people_id: @person.id)
+        if person_params[:rol] == 'Docente'
+          if @person.teachers.create(rank: 'Nombrado')
+            redirect_to teachers_path, notice: 'Docente ha sido creado'
+          else
+            render :new, alert: 'No se ha creado el docente'
+          end
+        elsif person_params[:rol] == 'Estudiante'
+          @person.students.create(turn: 'Mañana')
+        elsif person_params[:rol] == 'Directivo'
+          @person.executives.create(position: 'Secretario')
         end
       else
         format.html { render :new }

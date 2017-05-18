@@ -1,16 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Detail Courses</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Firs practice</th>
+      <th>First practice</th>
       <th>Second practice</th>
       <th>Third practice</th>
       <th>First exam</th>
       <th>Second exam</th>
       <th>Permanent</th>
+      <th>Unique exam</th>
+      <th>Defer exam</th>
       <th>Average</th>
       <th colspan="3"></th>
     </tr>
@@ -19,12 +19,14 @@
   <tbody>
     <% @detail_courses.each do |detail_course| %>
       <tr>
-        <td><%= detail_course.firs_practice %></td>
+        <td><%= detail_course.first_practice %></td>
         <td><%= detail_course.second_practice %></td>
         <td><%= detail_course.third_practice %></td>
         <td><%= detail_course.first_exam %></td>
         <td><%= detail_course.second_exam %></td>
         <td><%= detail_course.permanent %></td>
+        <td><%= detail_course.unique_exam %></td>
+        <td><%= detail_course.defer_exam %></td>
         <td><%= detail_course.average %></td>
         <td><%= link_to 'Show', detail_course %></td>
         <td><%= link_to 'Edit', edit_detail_course_path(detail_course) %></td>

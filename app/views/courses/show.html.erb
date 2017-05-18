@@ -18,5 +18,15 @@
   <%= @course.hours %>
 </p>
 
+<p>
+  <strong>Teacher:</strong>
+  <%= @teacher.person.name %>
+</p>
+
+<p>
+  <strong>Cycle:</strong>
+  <%= @cycle.name %>
+</p>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

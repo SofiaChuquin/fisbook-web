@@ -1,2 +1,2 @@
-json.extract! teacher, :id, :rango, :created_at, :updated_at
+json.extract! teacher, :id, :rank, :created_at, :updated_at
 json.url teacher_url(teacher, format: :json)
