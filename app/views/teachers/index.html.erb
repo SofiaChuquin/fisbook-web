@@ -3,6 +3,13 @@
 <table>
   <thead>
     <tr>
+      <th>Lastname</th>
+      <th>Name</th>
+      <th>Dni</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>State</th>
       <th>Rank</th>
       <th colspan="3"></th>
     </tr>
@@ -11,6 +18,12 @@
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
+        <td><%= teacher.person.lastname %></td>
+        <td><%= teacher.person.name %></td>
+        <td><%= teacher.person.dni %></td>
+        <td><%= teacher.person.phone %></td>
+        <td><%= teacher.person.email %></td>
+        <td><%= teacher.person.gender %></td>
         <td><%= teacher.rank %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>

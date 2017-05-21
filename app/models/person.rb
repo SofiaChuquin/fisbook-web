@@ -1,7 +1,11 @@
 class Person < ApplicationRecord
-  has_many :students, foreign_key: 'people_id'
-  has_many :teachers, foreign_key: 'people_id'
-  has_many :executives, foreign_key: 'people_id'
+  has_many :students, foreign_key: 'people_id', inverse_of: :person
+  has_many :teachers, foreign_key: 'people_id', inverse_of: :person
+  has_many :executives, foreign_key: 'people_id', inverse_of: :person
+
+  accepts_nested_attributes_for :students
+  accepts_nested_attributes_for :teachers
+  accepts_nested_attributes_for :executives
 
   validates :lastname, :name, presence: true
   validates :dni, presence: true, uniqueness: true, length: { maximum: 8 }, numericality: { only_integer: true }

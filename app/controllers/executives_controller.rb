@@ -25,6 +25,7 @@ class ExecutivesController < ApplicationController
   # POST /executives.json
   def create
     @executive = Executive.new(executive_params)
+    @executive.create_person(executive_params[:person_attributes])
 
     respond_to do |format|
       if @executive.save
@@ -69,6 +70,6 @@ class ExecutivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def executive_params
-      params.require(:executive).permit(:position)
+      params.require(:executive).permit(:position, person_attributes: [:lastname, :name, :dni, :phone, :email, :gender, :state, :rol])
     end
 end

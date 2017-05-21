@@ -25,6 +25,7 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.create_person(teacher_params[:person_attributes])
 
     respond_to do |format|
       if @teacher.save
@@ -69,6 +70,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:rank)
+      params.require(:teacher).permit(:rank, person_attributes: [:lastname, :name, :dni, :phone, :email, :gender, :state, :rol])
     end
 end

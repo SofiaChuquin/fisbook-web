@@ -11,6 +11,47 @@
     </div>
   <% end %>
 
+  <%= f.fields_for :person_attributes do |p| %>
+    <div class="field">
+      <%= p.label :lastname %>
+      <%= p.text_field :lastname %>
+    </div>
+
+    <div class="field">
+      <%= p.label :name %>
+      <%= p.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= p.label :dni %>
+      <%= p.text_field :dni %>
+    </div>
+
+    <div class="field">
+      <%= p.label :phone %>
+      <%= p.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= p.label :email %>
+      <%= p.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= p.label :gender %>
+      <%= p.text_field :gender %>
+    </div>
+
+    <div class="field">
+      <%= p.label :state %>
+      <%= p.text_field :state %>
+    </div>
+
+    <div class="field">
+      <%= p.hidden_field :rol, value: 'Docente'  %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :rank %>
     <%= f.text_field :rank %>
