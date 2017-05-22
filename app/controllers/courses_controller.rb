@@ -15,16 +15,22 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @teachers = Teacher.all
+    @cycles = Cycle.all
   end
 
   # GET /courses/1/edit
   def edit
+    @teachers = Teacher.all
+    @cycles = Cycle.all
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @teachers = Teacher.all
+    @cycles = Cycle.all
 
     respond_to do |format|
       if @course.save

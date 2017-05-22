@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :demands
   resources :executives
   #devise_for :users
-  resources :detail_courses
-  resources :courses
+  resources :notes
   resources :cycles
   resources :teachers
   resources :students
@@ -13,5 +12,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 end

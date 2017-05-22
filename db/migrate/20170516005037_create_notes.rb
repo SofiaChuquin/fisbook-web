@@ -1,6 +1,6 @@
-class CreateDetailCourses < ActiveRecord::Migration[5.0]
+class CreateNotes < ActiveRecord::Migration[5.0]
   def change
-    create_table :detail_courses do |t|
+    create_table :notes do |t|
       t.integer :first_practice
       t.integer :second_practice
       t.integer :third_practice

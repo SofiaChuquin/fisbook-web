@@ -12,10 +12,10 @@
   = @course.hours
 %p
   %strong Teacher:
-  = @teacher.person.name
+  = @course.teacher.person.name
 %p
   %strong Cycle:
-  = @cycle.name
+  = @course.cycle.name
 = link_to 'Edit', edit_course_path(@course)
 |
 = link_to 'Back', courses_path

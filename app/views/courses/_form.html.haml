@@ -19,11 +19,12 @@
   .field
     = f.label :hours
     = f.number_field :hours
+
   .field
     = f.label :teacher_id
-    = f.number_field :teacher_id
+    = f.select :teacher_id, @teachers.map { |t| [t.person.name + ' ' + t.person.lastname, t.id] }
   .field
     = f.label :cycle_id
-    = f.number_field :cycle_id
+    = f.select :cycle_id, @cycles.map { |c| [c.name, c.id] }
   .actions
     = f.submit
