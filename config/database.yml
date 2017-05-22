@@ -9,9 +9,6 @@ development: &default
   encoding: unicode
   database: fisbook_web_development
   pool: 5
-  username: postgres
-  password:
-  host: db
 
 test:
   <<: *default
