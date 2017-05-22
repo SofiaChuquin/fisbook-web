@@ -1,0 +1,27 @@
+%p
+  %strong Lastname:
+  = @student.person.lastname
+%p
+  %strong Name:
+  = @student.person.name
+%p
+  %strong Dni:
+  = @student.person.dni
+%p
+  %strong Phone:
+  = @student.person.phone
+%p
+  %strong Email:
+  = @student.person.email
+%p
+  %strong Gender:
+  = @student.person.gender
+%p
+  %strong State:
+  = @student.person.state
+%p
+  %strong Turn:
+  = @student.turn
+= link_to 'Edit', edit_student_path(@student)
+|
+= link_to 'Back', students_path

@@ -1,0 +1,27 @@
+%p
+  %strong Lastname:
+  = @executive.person.lastname
+%p
+  %strong Name:
+  = @executive.person.name
+%p
+  %strong Dni:
+  = @executive.person.dni
+%p
+  %strong Phone:
+  = @executive.person.phone
+%p
+  %strong Email:
+  = @executive.person.email
+%p
+  %strong Gender:
+  = @executive.person.gender
+%p
+  %strong State:
+  = @executive.person.state
+%p
+  %strong Position:
+  = @executive.position
+= link_to 'Edit', edit_executive_path(@executive)
+|
+= link_to 'Back', executives_path

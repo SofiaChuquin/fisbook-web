@@ -1,0 +1,9 @@
+%p
+  %strong Voucher:
+  = @enrollment.voucher
+%p
+  %strong Active:
+  = @enrollment.active
+= link_to 'Edit', edit_enrollment_path(@enrollment)
+|
+= link_to 'Back', enrollments_path

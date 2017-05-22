@@ -1,0 +1,30 @@
+%p
+  %strong First practice:
+  = @detail_course.first_practice
+%p
+  %strong Second practice:
+  = @detail_course.second_practice
+%p
+  %strong Third practice:
+  = @detail_course.third_practice
+%p
+  %strong First exam:
+  = @detail_course.first_exam
+%p
+  %strong Second exam:
+  = @detail_course.second_exam
+%p
+  %strong Permanent:
+  = @detail_course.permanent
+%p
+  %strong Unique exam:
+  = @detail_course.unique_exam
+%p
+  %strong Defer exam:
+  = @detail_course.defer_exam
+%p
+  %strong Average:
+  = @detail_course.average
+= link_to 'Edit', edit_detail_course_path(@detail_course)
+|
+= link_to 'Back', detail_courses_path

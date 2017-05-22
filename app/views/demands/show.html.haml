@@ -1,0 +1,12 @@
+%p
+  %strong Subject:
+  = @demand.subject
+%p
+  %strong Body:
+  = @demand.body
+%p
+  %strong Document:
+  = @demand.document
+= link_to 'Edit', edit_demand_path(@demand)
+|
+= link_to 'Back', demands_path
