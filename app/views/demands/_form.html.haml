@@ -1,0 +1,20 @@
+= form_for(demand) do |f|
+  - if demand.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(demand.errors.count, "error")
+        prohibited this demand from being saved:
+      %ul
+        - demand.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :subject
+    = f.text_field :subject
+  .field
+    = f.label :body
+    = f.text_field :body
+  .field
+    = f.label :document
+    = f.text_field :document
+  .actions
+    = f.submit

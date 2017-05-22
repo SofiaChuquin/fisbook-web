@@ -1,0 +1,38 @@
+= form_for(executive) do |f|
+  - if executive.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(executive.errors.count, "error")
+        prohibited this executive from being saved:
+      %ul
+        - executive.errors.full_messages.each do |message|
+          %li= message
+  = f.fields_for :person_attributes do |p|
+    .field
+      = p.label :lastname
+      = p.text_field :lastname
+    .field
+      = p.label :name
+      = p.text_field :name
+    .field
+      = p.label :dni
+      = p.text_field :dni
+    .field
+      = p.label :phone
+      = p.text_field :phone
+    .field
+      = p.label :email
+      = p.text_field :email
+    .field
+      = p.label :gender
+      = p.text_field :gender
+    .field
+      = p.label :state
+      = p.text_field :state
+    .field
+      = p.hidden_field :rol, value: 'Directivo'
+  .field
+    = f.label :position
+    = f.text_field :position
+  .actions
+    = f.submit

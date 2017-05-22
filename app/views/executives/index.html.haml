@@ -1,0 +1,29 @@
+%h1 Executives
+%table
+  %thead
+    %tr
+      %th Lastname
+      %th Name
+      %th Dni
+      %th Phone
+      %th Email
+      %th Gender
+      %th State
+      %th Position
+      %th{:colspan => "3"}
+  %tbody
+    - @executives.each do |executive|
+      %tr
+        %td= executive.person.lastname
+        %td= executive.person.name
+        %td= executive.person.dni
+        %td= executive.person.phone
+        %td= executive.person.email
+        %td= executive.person.gender
+        %td= executive.person.state
+        %td= executive.position
+        %td= link_to 'Show', executive
+        %td= link_to 'Edit', edit_executive_path(executive)
+        %td= link_to 'Destroy', executive, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Executive', new_executive_path

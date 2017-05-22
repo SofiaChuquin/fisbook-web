@@ -1,0 +1,38 @@
+= form_for(detail_course) do |f|
+  - if detail_course.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(detail_course.errors.count, "error")
+        prohibited this detail_course from being saved:
+      %ul
+        - detail_course.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :first_practice
+    = f.number_field :first_practice
+  .field
+    = f.label :second_practice
+    = f.number_field :second_practice
+  .field
+    = f.label :third_practice
+    = f.number_field :third_practice
+  .field
+    = f.label :first_exam
+    = f.number_field :first_exam
+  .field
+    = f.label :second_exam
+    = f.number_field :second_exam
+  .field
+    = f.label :permanent
+    = f.number_field :permanent
+  .field
+    = f.label :unique_exam
+    = f.number_field :unique_exam
+  .field
+    = f.label :defer_exam
+    = f.number_field :defer_exam
+  .field
+    = f.label :average
+    = f.text_field :average
+  .actions
+    = f.submit

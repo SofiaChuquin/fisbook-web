@@ -1,0 +1,25 @@
+%h1 Courses
+%table
+  %thead
+    %tr
+      %th Name
+      %th Credits
+      %th Type_evaluation
+      %th Hours
+      %th Teacher
+      %th Cycle
+      %th{:colspan => "3"}
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.name
+        %td= course.credits
+        %td= course.type_evaluation
+        %td= course.hours
+        %td= teacher.person.name
+        %td= cycle.name
+        %td= link_to 'Show', course
+        %td= link_to 'Edit', edit_course_path(course)
+        %td= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Course', new_course_path

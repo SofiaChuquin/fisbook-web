@@ -1,0 +1,19 @@
+%h1 Cycles
+%table
+  %thead
+    %tr
+      %th Name
+      %th Semester
+      %th Year
+      %th{:colspan => "3"}
+  %tbody
+    - @cycles.each do |cycle|
+      %tr
+        %td= cycle.name
+        %td= cycle.semester
+        %td= cycle.year
+        %td= link_to 'Show', cycle
+        %td= link_to 'Edit', edit_cycle_path(cycle)
+        %td= link_to 'Destroy', cycle, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Cycle', new_cycle_path

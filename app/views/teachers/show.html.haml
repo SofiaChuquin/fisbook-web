@@ -1,0 +1,27 @@
+%p
+  %strong Lastname:
+  = @teacher.person.lastname
+%p
+  %strong Name:
+  = @teacher.person.name
+%p
+  %strong Dni:
+  = @teacher.person.dni
+%p
+  %strong Phone:
+  = @teacher.person.phone
+%p
+  %strong Email:
+  = @teacher.person.email
+%p
+  %strong Gender:
+  = @teacher.person.gender
+%p
+  %strong State:
+  = @teacher.person.state
+%p
+  %strong Rank:
+  = @teacher.rank
+= link_to 'Edit', edit_teacher_path(@teacher)
+|
+= link_to 'Back', teachers_path

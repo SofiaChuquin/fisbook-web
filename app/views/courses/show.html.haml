@@ -1,0 +1,21 @@
+%p
+  %strong Name:
+  = @course.name
+%p
+  %strong Credits:
+  = @course.credits
+%p
+  %strong Evaluation type:
+  = @course.type_evaluation
+%p
+  %strong Hours:
+  = @course.hours
+%p
+  %strong Teacher:
+  = @teacher.person.name
+%p
+  %strong Cycle:
+  = @cycle.name
+= link_to 'Edit', edit_course_path(@course)
+|
+= link_to 'Back', courses_path
