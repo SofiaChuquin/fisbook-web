@@ -13,5 +13,11 @@
   .field
     = f.label :active
     = f.text_field :active
+  .field
+    = f.label :student_id
+    = f.select :student_id, @students.map { |t| [t.person.name + ' ' + t.person.lastname, t.id] }
+  .field
+    = f.label :cycle_id
+    = f.select :cycle_id, @cycles.map { |t| [t.name + ' ' + t.semester + ' ' + t.year.to_s, t.id] }
   .actions
     = f.submit

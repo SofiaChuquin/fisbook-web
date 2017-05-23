@@ -1,11 +1,11 @@
-= form_for(detail_course) do |f|
-  - if detail_course.errors.any?
+= form_for ([@course, @student, @note]) do |f|
+  - if note.errors.any?
     #error_explanation
       %h2
-        = pluralize(detail_course.errors.count, "error")
+        = pluralize(note.errors.count, "error")
         prohibited this detail_course from being saved:
       %ul
-        - detail_course.errors.full_messages.each do |message|
+        - note.errors.full_messages.each do |message|
           %li= message
   .field
     = f.label :first_practice
@@ -34,5 +34,6 @@
   .field
     = f.label :average
     = f.text_field :average
+
   .actions
     = f.submit

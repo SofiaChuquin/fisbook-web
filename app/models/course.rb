@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
-  belongs_to :teacher, foreign_key: 'teachers_id'
-  belongs_to :cycle, foreign_key: 'cycles_id'
-  has_many :detail_courses, foreign_key: 'courses_id'
+  belongs_to :teacher, foreign_key: 'teacher_id'
+  belongs_to :cycle, foreign_key: 'cycle_id'
+  has_many :notes, foreign_key: 'course_id'
 
   validates :name, presence: true
   validates :credits, presence: true, numericality: { only_float: true, greater_than: 0.0 }

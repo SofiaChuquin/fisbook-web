@@ -1,0 +1,30 @@
+%p
+  %strong First practice:
+  = @note.first_practice
+%p
+  %strong Second practice:
+  = @note.second_practice
+%p
+  %strong Third practice:
+  = @note.third_practice
+%p
+  %strong First exam:
+  = @note.first_exam
+%p
+  %strong Second exam:
+  = @note.second_exam
+%p
+  %strong Permanent:
+  = @note.permanent
+%p
+  %strong Unique exam:
+  = @note.unique_exam
+%p
+  %strong Defer exam:
+  = @note.defer_exam
+%p
+  %strong Average:
+  = @note.average
+= link_to 'Edit', edit_course_student_note_path(@note)
+|
+= link_to 'Back', course_student_notes_path

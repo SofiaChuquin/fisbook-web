@@ -1,5 +1,6 @@
 class EnrollmentsController < ApplicationController
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
+  before_action :validate_rol, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /enrollments
   # GET /enrollments.json
@@ -15,6 +16,8 @@ class EnrollmentsController < ApplicationController
   # GET /enrollments/new
   def new
     @enrollment = Enrollment.new
+    @students = Student.all
+    @cycles = Cycle.all
   end
 
   # GET /enrollments/1/edit
@@ -25,6 +28,8 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments.json
   def create
     @enrollment = Enrollment.new(enrollment_params)
+    @students = Student.all
+    @cycles = Cycle.all
 
     respond_to do |format|
       if @enrollment.save
@@ -40,6 +45,9 @@ class EnrollmentsController < ApplicationController
   # PATCH/PUT /enrollments/1
   # PATCH/PUT /enrollments/1.json
   def update
+    @students = Student.all
+    @cycles = Cycle.all
+    
     respond_to do |format|
       if @enrollment.update(enrollment_params)
         format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
@@ -69,6 +77,10 @@ class EnrollmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enrollment_params
-      params.require(:enrollment).permit(:voucher, :active)
+      params.require(:enrollment).permit(:voucher, :active, :student_id, :cycle_id)
+    end
+
+    def validate_rol
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
     end
 end

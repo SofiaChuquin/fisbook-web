@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520030455) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20170523000800) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -24,14 +21,14 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.integer  "cycle_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["cycle_id"], name: "index_courses_on_cycle_id", using: :btree
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id", using: :btree
+    t.index ["cycle_id"], name: "index_courses_on_cycle_id"
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "cycles", force: :cascade do |t|
     t.string   "name"
     t.string   "semester",   limit: 1
-    t.integer  "year"
+    t.integer  "year",       limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -40,15 +37,37 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.string   "subject"
     t.string   "body"
     t.string   "document"
+    t.boolean  "active"
     t.integer  "student_id"
     t.integer  "executive_id"
+    t.integer  "note_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["executive_id"], name: "index_demands_on_executive_id", using: :btree
-    t.index ["student_id"], name: "index_demands_on_student_id", using: :btree
+    t.index ["executive_id"], name: "index_demands_on_executive_id"
+    t.index ["note_id"], name: "index_demands_on_note_id"
+    t.index ["student_id"], name: "index_demands_on_student_id"
   end
 
-  create_table "detail_courses", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
+    t.string   "voucher"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "student_id"
+    t.integer  "cycle_id"
+    t.index ["cycle_id"], name: "index_enrollments_on_cycle_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
+  end
+
+  create_table "executives", force: :cascade do |t|
+    t.string   "position"
+    t.integer  "people_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["people_id"], name: "index_executives_on_people_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
     t.integer  "first_practice"
     t.integer  "second_practice"
     t.integer  "third_practice"
@@ -62,23 +81,8 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.integer  "course_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["course_id"], name: "index_detail_courses_on_course_id", using: :btree
-    t.index ["student_id"], name: "index_detail_courses_on_student_id", using: :btree
-  end
-
-  create_table "enrollments", force: :cascade do |t|
-    t.string   "voucher"
-    t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "executives", force: :cascade do |t|
-    t.string   "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "people_id"
-    t.index ["people_id"], name: "index_executives_on_people_id", using: :btree
+    t.index ["course_id"], name: "index_notes_on_course_id"
+    t.index ["student_id"], name: "index_notes_on_student_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -99,7 +103,7 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.integer  "people_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["people_id"], name: "index_students_on_people_id", using: :btree
+    t.index ["people_id"], name: "index_students_on_people_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -107,7 +111,7 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.integer  "people_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["people_id"], name: "index_teachers_on_people_id", using: :btree
+    t.index ["people_id"], name: "index_teachers_on_people_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,17 +127,8 @@ ActiveRecord::Schema.define(version: 20170520030455) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "courses", "cycles"
-  add_foreign_key "courses", "teachers"
-  add_foreign_key "demands", "executives"
-  add_foreign_key "demands", "students"
-  add_foreign_key "detail_courses", "courses"
-  add_foreign_key "detail_courses", "students"
-  add_foreign_key "executives", "people", column: "people_id"
-  add_foreign_key "students", "people", column: "people_id"
-  add_foreign_key "teachers", "people", column: "people_id"
 end

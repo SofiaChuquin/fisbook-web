@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :validate_rol, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -82,5 +83,9 @@ class PeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.require(:person).permit(:lastname, :name, :dni, :phone, :email, :gender, :state, :rol)
+    end
+
+    def validate_rol
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
     end
 end

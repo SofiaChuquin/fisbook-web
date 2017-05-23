@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
   def index
-    @hola = "Hola"
+    @hola = current_person.rol
   end
 end
