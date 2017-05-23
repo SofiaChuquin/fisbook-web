@@ -4,10 +4,11 @@ class CreateDemands < ActiveRecord::Migration[5.0]
       t.string :subject
       t.string :body
       t.string :document
+      t.boolean :active
       t.references :student, index: true, foreign_key: true
       t.references :executive, index: true, foreign_key: true
       t.references :note, index: true, foreign_key: true
-      
+
       t.timestamps
     end
   end

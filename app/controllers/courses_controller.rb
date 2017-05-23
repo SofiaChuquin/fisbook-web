@@ -1,10 +1,11 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :validate_rol, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.where(cycle_id: current_person.students.first.enrollments.last.cycle_id)
   end
 
   # GET /courses/1
@@ -76,5 +77,9 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:name, :credits, :type_evaluation, :hours, :teacher_id, :cycle_id)
+    end
+
+    def validate_rol
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
     end
 end

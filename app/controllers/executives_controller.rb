@@ -1,5 +1,6 @@
 class ExecutivesController < ApplicationController
   before_action :set_executive, only: [:show, :edit, :update, :destroy]
+  before_action :validate_rol, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /executives
   # GET /executives.json
@@ -71,5 +72,9 @@ class ExecutivesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def executive_params
       params.require(:executive).permit(:position, person_attributes: [:lastname, :name, :dni, :phone, :email, :gender, :state, :rol])
+    end
+
+    def validate_rol
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
     end
 end

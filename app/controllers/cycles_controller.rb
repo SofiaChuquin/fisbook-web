@@ -1,5 +1,6 @@
 class CyclesController < ApplicationController
   before_action :set_cycle, only: [:show, :edit, :update, :destroy]
+  before_action :validate_rol, only: [:index, :new, :create, :edit, :update, :destroy]
 
   # GET /cycles
   # GET /cycles.json
@@ -70,5 +71,9 @@ class CyclesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cycle_params
       params.require(:cycle).permit(:name, :semester, :year)
+    end
+
+    def validate_rol
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
     end
 end

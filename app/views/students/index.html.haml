@@ -2,6 +2,7 @@
 %table
   %thead
     %tr
+      %th ID
       %th Lastname
       %th Name
       %th Dni
@@ -14,6 +15,7 @@
   %tbody
     - @students.each do |student|
       %tr
+        %td= student.id
         %td= student.person.lastname
         %td= student.person.name
         %td= student.person.dni

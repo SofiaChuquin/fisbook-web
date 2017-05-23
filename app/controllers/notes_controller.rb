@@ -14,7 +14,9 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    @note = Note.new
+    @course = Course.find(params[:course_id])
+    @student = Student.find(params[:student_id])
+    @note = @course.notes.new(student_id: @student.id)
   end
 
   # GET /notes/1/edit
@@ -24,11 +26,13 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @course = Course.find(params[:course_id])
+    @student = Student.find(params[:student_id])
+    @note = Note.new(note_params.merge(course_id: @course.id, student_id: @student.id))
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to course_student_note_path(id: @note.id, course_id: @course.id, student_id: @student.id), notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -40,9 +44,11 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    @course = Course.find(params[:course_id])
+    @student = Student.find(params[:student_id])
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to course_student_note_path(id: @note.id, course_id: @course.id, student_id: @student.id), notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
@@ -56,7 +62,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to course_student_notes_path, notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

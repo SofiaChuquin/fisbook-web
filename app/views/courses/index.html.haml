@@ -2,6 +2,7 @@
 %table
   %thead
     %tr
+      %th ID
       %th Name
       %th Credits
       %th Type_evaluation
@@ -12,6 +13,7 @@
   %tbody
     - @courses.each do |course|
       %tr
+        %td= course.id
         %td= course.name
         %td= course.credits
         %td= course.type_evaluation

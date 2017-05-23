@@ -1,4 +1,4 @@
-= form_for(note) do |f|
+= form_for ([@course, @student, @note]) do |f|
   - if note.errors.any?
     #error_explanation
       %h2
@@ -34,5 +34,6 @@
   .field
     = f.label :average
     = f.text_field :average
+
   .actions
     = f.submit
