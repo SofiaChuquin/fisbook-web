@@ -27,7 +27,6 @@ gem 'devise'
 # email validation
 gem 'validates_email_format_of'
 # sqlite3
-gem 'sqlite3'
 #bcrypt
 gem 'bcrypt', platforms: :ruby
 
@@ -53,6 +52,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'sqlite3'
   gem "erb2haml", :group => :development
 end
 
