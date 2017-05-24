@@ -1,25 +1,28 @@
-%p
-  %strong Name:
-  = @course.name
-%p
-  %strong Credits:
-  = @course.credits
-%p
-  %strong Evaluation type:
-  = @course.type_evaluation
-%p
-  %strong Hours:
-  = @course.hours
-%p
-  %strong Teacher:
-  = @course.teacher.person.name
-%p
-  %strong Cycle:
-  = @course.cycle.name
+%h4= @course.name
+%strong Créditos
+= @course.credits
+|
+%strong Evaluation type:
+= @course.type_evaluation
+|
+%strong Hours:
+= @course.hours
+|
+%strong Teacher:
+= @course.teacher.person.name
+|
+%strong Cycle:
+= "#{@course.cycle.name} #{@course.cycle.year}-#{@course.cycle.semester}"
+%br
+%br
+%br
+%br
+%hr
 
 %table
   %thead
     %tr
+      %td Nombre alumno
       %td Primera práctica
       %td Segunda práctica
       %td Tercera práctica
@@ -29,18 +32,33 @@
       %td Evaluación única
       %td Aplazado
       %td Promedio
+      %td Acción
   %tbody
-    - @course.notes.each do |n|
+    - @students.each do |s|
       %tr
-        %td= n.first_practice
-        %td= n.second_practice
-        %td= n.third_practice
-        %td= n.first_exam
-        %td= n.second_exam
-        %td= n.permanent
-        %td= n.unique_exam
-        %td= n.defer_exam
-        %td= n.average
+        %td= s.person.name
+        - if !s.notes.blank?
+          %td= s.notes.first.first_practice
+          %td= s.notes.first.second_practice
+          %td= s.notes.first.third_practice
+          %td= s.notes.first.first_exam
+          %td= s.notes.first.second_exam
+          %td= s.notes.first.permanent
+          %td= s.notes.first.unique_exam
+          %td= s.notes.first.defer_exam
+          %td= s.notes.first.average
+          %td= link_to 'Editar', edit_course_student_note_path(@course.id, s.id, s.notes.first.id)
+        - else
+          %td --
+          %td --
+          %td --
+          %td --
+          %td --
+          %td --
+          %td --
+          %td --
+          %td --
+          %td= link_to 'Añadir nota', new_course_student_note_path(@course.id, s.id)
 
 
 

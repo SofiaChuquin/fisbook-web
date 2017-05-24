@@ -18,8 +18,9 @@
       = link_to c.name, c
   - if current_person.person.rol == 'Docente'
     %h4 Mis cursos
+    %ul
     - @courses.each do |c|
-      = c.name
+      %li= link_to c.name, c
   - if current_person.person.rol == 'Directivo'
     %h4 Ciclos
     %ul

@@ -17,10 +17,16 @@ class NotesController < ApplicationController
     @course = Course.find(params[:course_id])
     @student = Student.find(params[:student_id])
     @note = @course.notes.new(student_id: @student.id)
+    if @student.notes.size >= 1
+      redirect_to root_path, notice: 'Alumno ya cuenta con nota del curso'
+    end
   end
 
   # GET /notes/1/edit
   def edit
+    @course = Course.find(params[:course_id])
+    @student = Student.find(params[:student_id])
+    @note = Note.find(params[:id])
   end
 
   # POST /notes
