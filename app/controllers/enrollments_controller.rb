@@ -15,25 +15,26 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/new
   def new
-    @enrollment = Enrollment.new
+    @cycle = Cycle.find(params[:cycle_id])
+    @enrollment = @cycle.enrollments.new(cycle_id: @cycle.id)
     @students = Student.all
-    @cycles = Cycle.all
   end
 
   # GET /enrollments/1/edit
   def edit
+    @students = Student.all
   end
 
   # POST /enrollments
   # POST /enrollments.json
   def create
-    @enrollment = Enrollment.new(enrollment_params)
+    @cycle = Cycle.find(params[:cycle_id])
+    @enrollment = Enrollment.new(enrollment_params.merge(cycle_id: @cycle.id))
     @students = Student.all
-    @cycles = Cycle.all
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Enrollment was successfully created.' }
         format.json { render :show, status: :created, location: @enrollment }
       else
         format.html { render :new }
@@ -45,12 +46,11 @@ class EnrollmentsController < ApplicationController
   # PATCH/PUT /enrollments/1
   # PATCH/PUT /enrollments/1.json
   def update
-    @students = Student.all
-    @cycles = Cycle.all
-    
+    @cycle = Cycle.fin(params[:cycle_id])
+
     respond_to do |format|
       if @enrollment.update(enrollment_params)
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
+        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Enrollment was successfully updated.' }
         format.json { render :show, status: :ok, location: @enrollment }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class EnrollmentsController < ApplicationController
   def destroy
     @enrollment.destroy
     respond_to do |format|
-      format.html { redirect_to enrollments_url, notice: 'Enrollment was successfully destroyed.' }
+      format.html { redirect_to cycle_enrollments_path, notice: 'Enrollment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +81,6 @@ class EnrollmentsController < ApplicationController
     end
 
     def validate_rol
-      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.person.rol == 'Directivo'
     end
 end

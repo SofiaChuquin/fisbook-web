@@ -16,6 +16,35 @@
 %p
   %strong Cycle:
   = @course.cycle.name
+
+%table
+  %thead
+    %tr
+      %td Primera práctica
+      %td Segunda práctica
+      %td Tercera práctica
+      %td Primer parcial
+      %td Segundo parcial
+      %td Evaluación permanente
+      %td Evaluación única
+      %td Aplazado
+      %td Promedio
+  %tbody
+    - @course.notes.each do |n|
+      %tr
+        %td= n.first_practice
+        %td= n.second_practice
+        %td= n.third_practice
+        %td= n.first_exam
+        %td= n.second_exam
+        %td= n.permanent
+        %td= n.unique_exam
+        %td= n.defer_exam
+        %td= n.average
+
+
+
+
 = link_to 'Edit', edit_course_path(@course)
 |
 = link_to 'Back', courses_path

@@ -4,9 +4,9 @@ class CoursesController < ApplicationController
 
   # GET /courses
   # GET /courses.json
-  def index
-    @courses = Course.where(cycle_id: current_person.students.first.enrollments.last.cycle_id)
-  end
+  # def index
+  #   @courses = Course.all
+  # end
 
   # GET /courses/1
   # GET /courses/1.json
@@ -15,27 +15,26 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @cycle = Cycle.find(params[:cycle_id])
+    @course = @cycle.courses.new(cycle_id: @cycle.id)
     @teachers = Teacher.all
-    @cycles = Cycle.all
   end
 
   # GET /courses/1/edit
   def edit
     @teachers = Teacher.all
-    @cycles = Cycle.all
   end
 
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    @cycle = Cycle.find(params[:cycle_id])
+    @course = Course.new(course_params.merge(cycle_id: @cycle.id))
     @teachers = Teacher.all
-    @cycles = Cycle.all
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to cycle_course_path(id: @course.id, cycle_id: @cycle.id), notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -76,10 +75,10 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :credits, :type_evaluation, :hours, :teacher_id, :cycle_id)
+      params.require(:course).permit(:name, :credits, :type_evaluation, :hours, :teacher_id)
     end
 
     def validate_rol
-      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.person.rol == 'Directivo'
     end
 end

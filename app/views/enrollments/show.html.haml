@@ -4,6 +4,9 @@
 %p
   %strong Active:
   = @enrollment.active
-= link_to 'Edit', edit_enrollment_path(@enrollment)
+%p
+  %strong Student:
+  = @enrollment.student.person.name
+= link_to 'Edit', edit_cycle_enrollment_path(@enrollment)
 |
-= link_to 'Back', enrollments_path
+= link_to 'Back', cycle_enrollments_path
