@@ -9,8 +9,26 @@
   background-color: #333;
 
   &__container {
-    max-width: 500px;
+    max-width: 400px;
+    width: 90%;
+    margin: 1em;
     padding: 1.5em;
     background-color: #fff;
+    border-radius: .5em;
   }
+
+  form {
+    margin: 1.5em 0;
+  }
+
+  .form__field, .form__action {
+    display: flex;
+    flex-direction: column;
+
+    & + .form__field, & + .form__action {
+      margin-top: 1em;
+    }
+  }
+
+
 }

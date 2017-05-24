@@ -1,0 +1,19 @@
+p.notice,
+p.alert,
+.no-margin {
+  margin: 0;
+}
+
+label + input {
+  margin-top: .4em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"],
+textarea {
+  padding: .7em;
+  border: 1px solid #ddd;
+  border-radius: .3em;
+}
