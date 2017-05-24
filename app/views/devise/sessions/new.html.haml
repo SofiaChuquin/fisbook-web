@@ -10,5 +10,5 @@
         = f.password_field :password, autocomplete: "off"
       .form__action
         = f.submit "Log in"
-    .login__forgot
+    .login__links
       = link_to 'Olvidaste tu contraseña?', new_password_path(resource_name)
