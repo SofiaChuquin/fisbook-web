@@ -1,12 +1,17 @@
-%p
-  %strong Name:
-  = @cycle.name
-%p
-  %strong Semester:
-  = @cycle.semester
-%p
-  %strong Year:
-  = @cycle.year
+%h1= "#{@cycle.name} #{@cycle.year}-#{@cycle.semester}"
 = link_to 'Edit', edit_cycle_path(@cycle)
 |
 = link_to 'Back', cycles_path
+
+%br
+%br
+%br
+%br
+%h4= link_to 'Gestionar matrículas', new_cycle_enrollment_path(@cycle.id)
+%hr
+
+%ul
+- @cycle.courses.each do |c|
+  %li= link_to c.name, cycle_course_path(@cycle.id, c.id)
+  %br
+= link_to 'Crear nuevo curso', new_cycle_course_path(@cycle.id)

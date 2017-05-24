@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_person
 
   def current_person
-    Person.find_by(email: current_user.email)
+    p current_user.inspect + '=================='
+    person = Person.find_by(email: current_user.email)
+    if person.rol == 'Estudiante'
+      person.students.first
+    elsif person.rol == 'Docente'
+      person.teachers.first
+    elsif person.rol == 'Directivo'
+      person.executives.first
+    end
   end
 end

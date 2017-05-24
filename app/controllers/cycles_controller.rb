@@ -74,6 +74,6 @@ class CyclesController < ApplicationController
     end
 
     def validate_rol
-      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.rol == 'Directivo'
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.person.rol == 'Directivo'
     end
 end
