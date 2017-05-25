@@ -3,14 +3,14 @@
   %thead
     %tr
       %th ID
-      %th Lastname
-      %th Name
+      %th Apellidos
+      %th Nombres
       %th Dni
-      %th Phone
-      %th Email
-      %th Gender
-      %th State
-      %th Turn
+      %th Teléfono
+      %th Correo electrónico
+      %th Género
+      %th Estado
+      %th Turno
       %th{:colspan => "3"}
   %tbody
     - @students.each do |student|
@@ -24,8 +24,8 @@
         %td= student.person.gender
         %td= student.person.state
         %td= student.turn
-        %td= link_to 'Show', student
-        %td= link_to 'Edit', edit_student_path(student)
-        %td= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', student
+        %td= link_to 'Editar', edit_student_path(student)
+        %td= link_to 'Eliminar', student, method: :delete, data: { confirm: 'Estás seguro?' }
 %br/
-= link_to 'New Student', new_student_path
+= link_to 'Agregar alumno', new_student_path
