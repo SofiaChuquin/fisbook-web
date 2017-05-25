@@ -1,28 +1,29 @@
-%h1 Teachers
-%table
-  %thead
-    %tr
-      %th Lastname
-      %th Name
-      %th Dni
-      %th Phone
-      %th Email
-      %th Gender
-      %th State
-      %th Rank
-      %th{:colspan => "3"}
-  %tbody
-    - @teachers.each do |teacher|
+.max-container
+  %h2 Teachers
+  %table.responsive-table.striped
+    %thead
       %tr
-        %td= teacher.person.lastname
-        %td= teacher.person.name
-        %td= teacher.person.dni
-        %td= teacher.person.phone
-        %td= teacher.person.email
-        %td= teacher.person.gender
-        %td= teacher.rank
-        %td= link_to 'Show', teacher
-        %td= link_to 'Edit', edit_teacher_path(teacher)
-        %td= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Teacher', new_teacher_path
+        %th Lastname
+        %th Name
+        %th Dni
+        %th Phone
+        %th Email
+        %th Gender
+        %th State
+        %th Rank
+        %th{:colspan => "3"}
+    %tbody
+      - @teachers.each do |teacher|
+        %tr
+          %td= teacher.person.lastname
+          %td= teacher.person.name
+          %td= teacher.person.dni
+          %td= teacher.person.phone
+          %td= teacher.person.email
+          %td= teacher.person.gender
+          %td= teacher.rank
+          %td= link_to 'Show', teacher
+          %td= link_to 'Edit', edit_teacher_path(teacher)
+          %td= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Teacher', new_teacher_path

@@ -17,19 +17,6 @@
     border-radius: .5em;
   }
 
-  form {
-    margin: 1.5em 0;
-  }
-
-  .form__field, .form__action {
-    display: flex;
-    flex-direction: column;
-
-    & + .form__field, & + .form__action {
-      margin-top: 1em;
-    }
-  }
-
   &__links {
     display: flex;
     justify-content: space-between;

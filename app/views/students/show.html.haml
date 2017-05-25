@@ -1,27 +1,28 @@
-%p
-  %strong Lastname:
-  = @student.person.lastname
-%p
-  %strong Name:
-  = @student.person.name
-%p
-  %strong Dni:
-  = @student.person.dni
-%p
-  %strong Phone:
-  = @student.person.phone
-%p
-  %strong Email:
-  = @student.person.email
-%p
-  %strong Gender:
-  = @student.person.gender
-%p
-  %strong State:
-  = @student.person.state
-%p
-  %strong Turn:
-  = @student.turn
-= link_to 'Edit', edit_student_path(@student)
-|
-= link_to 'Back', students_path
+.max-container
+  %h2 Mostrar estudiante
+  %p
+    %strong Apellidos:
+    = @student.person.lastname
+  %p
+    %strong Nombres:
+    = @student.person.name
+  %p
+    %strong Dni:
+    = @student.person.dni
+  %p
+    %strong Teléfono:
+    = @student.person.phone
+  %p
+    %strong Correo electrónico:
+    = @student.person.email
+  %p
+    %strong Género:
+    = @student.person.gender
+  %p
+    %strong Estado:
+    = @student.person.state
+  %p
+    %strong Turno:
+    = @student.turn
+  .row
+    = link_to 'Editar', edit_student_path(@student), class: 'btn waves-effect waves-light col l4'

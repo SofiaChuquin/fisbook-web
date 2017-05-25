@@ -1,21 +1,21 @@
 .login
-  .login__container
-    %h2.no-margin Registro
+  .login__container.z-depth-2
+    %h4.no-margin Registro
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
-      .form__field
+      .input-field
         = f.label :email, 'Correo electrónico'
         = f.email_field :email, autofocus: true
-      .form__field
+      .input-field
         = f.label :password, 'Contraseña'
         -# - if @minimum_password_length
         -#   %em
         -#     (#{@minimum_password_length} characters minimum)
         = f.password_field :password, autocomplete: "off"
-      .form__field
+      .input-field
         = f.label :password_confirmation, 'Repetir contraseña'
         = f.password_field :password_confirmation, autocomplete: "off"
       .form__action
-        = f.submit "Registrarme", class: 'btn-primary'
+        = f.submit "Registrarme", class: 'btn waves-effect waves-light'
     .login__links
       = render "devise/shared/links"

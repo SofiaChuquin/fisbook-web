@@ -1,9 +1,9 @@
 .login
-  .login__container
-    %h2.no-margin Reenviar instrucciones de confirmación
+  .login__container.z-depth-2
+    %h4.no-margin Reenviar instrucciones de confirmación
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
       = devise_error_messages!
-      .form__field
+      .input-field
         = f.label :email, 'Correo electrónico'
         = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
       .form__action

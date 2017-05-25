@@ -1,31 +1,32 @@
-%h1 Students
-%table
-  %thead
-    %tr
-      %th ID
-      %th Lastname
-      %th Name
-      %th Dni
-      %th Phone
-      %th Email
-      %th Gender
-      %th State
-      %th Turn
-      %th{:colspan => "3"}
-  %tbody
-    - @students.each do |student|
+.max-container
+  %h2 Estudiantes
+  %table.responsive-table.striped
+    %thead
       %tr
-        %td= student.id
-        %td= student.person.lastname
-        %td= student.person.name
-        %td= student.person.dni
-        %td= student.person.phone
-        %td= student.person.email
-        %td= student.person.gender
-        %td= student.person.state
-        %td= student.turn
-        %td= link_to 'Show', student
-        %td= link_to 'Edit', edit_student_path(student)
-        %td= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Student', new_student_path
+        %th ID
+        %th Apellidos
+        %th Nombres
+        %th Dni
+        %th Teléfono
+        %th Correo electrónico
+        %th Género
+        %th Estado
+        %th Turno
+        %th{:colspan => "3"}
+    %tbody
+      - @students.each do |student|
+        %tr
+          %td= student.id
+          %td= student.person.lastname
+          %td= student.person.name
+          %td= student.person.dni
+          %td= student.person.phone
+          %td= student.person.email
+          %td= student.person.gender
+          %td= student.person.state
+          %td= student.turn
+          %td= link_to 'Mostrar', student
+          %td= link_to 'Editar', edit_student_path(student)
+          %td= link_to 'Eliminar', student, method: :delete, data: { confirm: 'Estás seguro?' }
+  %br/
+  = link_to 'Agregar alumno', new_student_path

@@ -1,38 +1,44 @@
 = form_for(student) do |f|
   - if student.errors.any?
     #error_explanation
-      %h2
+      %h4
         = pluralize(student.errors.count, "error")
         prohibited this student from being saved:
       %ul
         - student.errors.full_messages.each do |message|
           %li= message
   = f.fields_for :person_attributes do |p|
-    .field
-      = p.label :lastname
-      = p.text_field :lastname
-    .field
-      = p.label :name
-      = p.text_field :name
-    .field
-      = p.label :dni
-      = p.text_field :dni
-    .field
-      = p.label :phone
-      = p.text_field :phone
-    .field
-      = p.label :email
-      = p.text_field :email
-    .field
-      = p.label :gender
-      = p.text_field :gender
-    .field
-      = p.label :state
-      = p.text_field :state
-    .field
-      = p.hidden_field :rol, value: 'Estudiante'
-  .field
-    = f.label :turn
-    = f.text_field :turn
-  .actions
-    = f.submit
+    .row
+      .input-field.col.s12.m6.l5
+        = p.text_field :lastname
+        = p.label :lastname, 'Apellidos', class: 'active'
+      .input-field.col.s12.m6.l5.push-l2
+        = p.text_field :name
+        = p.label :name, 'Nombres', class: 'active'
+    .row
+      .input-field.col.s12.m6.l5
+        = p.text_field :dni
+        = p.label :dni
+      .input-field.col.s12.m6.l5.push-l2
+        = p.text_field :phone
+        = p.label :phone, 'Teléfono', class: 'active'
+    .row
+      .input-field.col.s12.m6.l5
+        = p.text_field :email
+        = p.label :email, 'Correo electrónico', class: 'active'
+      .input-field.col.s12.m6.l5.push-l2
+        = p.select :gender do
+          - [['Masculino', 'Masculino'], ['Femenino', 'Femenino']].each do |c|
+            = content_tag(:option, c.first, value: c.last)
+        = p.label :gender, 'Género'
+    .row
+      .input-field.col.s12.m6.l5
+        = p.text_field :state
+        = p.label :state, 'Estado', class: 'active'
+        = p.hidden_field :rol, value: 'Estudiante'
+      .input-field.col.s12.m6.l5.push-l2
+        = f.text_field :turn
+        = f.label :turn, 'Turno', class: 'active'
+    .row.actions
+      .col.s12.m6.l5
+        %button.btn.waves-effect.waves-light{type: "submit"} Guardar
