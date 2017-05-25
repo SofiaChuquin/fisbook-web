@@ -1,4 +1,4 @@
-= form_for(enrollment) do |f|
+= form_for([@cycle, @enrollment]) do |f|
   - if enrollment.errors.any?
     #error_explanation
       %h2
@@ -15,9 +15,6 @@
     = f.text_field :active
   .field
     = f.label :student_id
-    = f.select :student_id, @students.map { |t| [t.person.name + ' ' + t.person.lastname, t.id] }
-  .field
-    = f.label :cycle_id
-    = f.select :cycle_id, @cycles.map { |t| [t.name + ' ' + t.semester + ' ' + t.year.to_s, t.id] }
+    = f.select :student_id, @students.map { |s| [s.person.name + ' ' + s.person.lastname, s.id] }
   .actions
     = f.submit

@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
+  # resources :people
+  resources :students
   resources :executives
-  #devise_for :users
+  resources :teachers
 
   resources :cycles do
-    resources :enrollments
-    resources :students
+    resources :enrollments, only: [:new, :create, :edit, :update, :show, :destroy]
+    resources :courses, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
-  resources :teachers
-  resources :students
-  resources :people
 
   resources :courses do
     resources :demands
@@ -17,7 +16,6 @@ Rails.application.routes.draw do
       resources :notes
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "home#index"
 
