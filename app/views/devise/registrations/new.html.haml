@@ -1,6 +1,6 @@
 .login
   .login__container
-    %h2.no-margin Registro
+    %h4.no-margin Registro
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .form__field
