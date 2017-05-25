@@ -1,7 +1,7 @@
 = form_for(student) do |f|
   - if student.errors.any?
     #error_explanation
-      %h2
+      %h4
         = pluralize(student.errors.count, "error")
         prohibited this student from being saved:
       %ul
@@ -41,4 +41,4 @@
         = f.label :turn, 'Turno', class: 'active'
     .row.actions
       .col.s12.m6.l5
-        %button.btn.waves-effect.waves-light{type: "submit"} Añadir
+        %button.btn.waves-effect.waves-light{type: "submit"} Guardar
