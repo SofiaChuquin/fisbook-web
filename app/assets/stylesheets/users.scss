@@ -30,5 +30,13 @@
     }
   }
 
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
+    & > a:first-child {
+      margin-right: .5em;
+    }
+  }
 }

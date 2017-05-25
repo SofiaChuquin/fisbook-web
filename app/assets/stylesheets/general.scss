@@ -4,6 +4,11 @@ p.alert,
   margin: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 label + input {
   margin-top: .4em;
 }
@@ -11,9 +16,20 @@ label + input {
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="submit"],
 textarea {
   padding: .7em;
   border: 1px solid #ddd;
   border-radius: .3em;
+}
+
+input[type="submit"],
+.btn {
+  padding: .7em;
+  border-radius: .3em;
+}
+
+.btn-primary {
+  background-color: #4527A0;
+  border: 1px solid #4527A0;
+  color: #fff;
 }
