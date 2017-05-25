@@ -26,5 +26,5 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: fisbook_web_production
+  database: fisbook-web_production
   pool: 5
