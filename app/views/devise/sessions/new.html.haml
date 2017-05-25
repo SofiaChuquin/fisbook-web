@@ -11,5 +11,4 @@
       .form__action
         = f.submit "Ingresar", class: 'btn-primary'
     .login__links
-      = link_to "Regístrate", new_registration_path(resource_name)
-      = link_to 'Olvidaste tu contraseña?', new_password_path(resource_name)
+      = render "devise/shared/links"
