@@ -4,7 +4,7 @@ p.alert,
   margin: 0;
 }
 
-.btn-primary {
+.btn waves-effect waves-light {
   background-color: #4527A0;
   border: 1px solid #4527A0;
   color: #fff;
@@ -32,11 +32,11 @@ form {
   }
 }
 
-.form__field, .form__action {
+.input-field, .form__action {
   display: flex;
   flex-direction: column;
 
-  & + .form__field, & + .form__action {
+  & + .input-field, & + .form__action {
     margin-top: 1em;
   }
 }

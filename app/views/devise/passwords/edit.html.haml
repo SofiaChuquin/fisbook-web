@@ -1,16 +1,16 @@
 .login
-  .login__container
+  .login__container.z-depth-2
     %h4.no-margin Cambiar contraseña
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
       = f.hidden_field :reset_password_token
-      .form__field
+      .input-field
         = f.label :password, "Nueva contraseña"
         -# - if @minimum_password_length
         -#   %em
         -#     (#{@minimum_password_length} characters minimum)
         = f.password_field :password, autofocus: true, autocomplete: "off"
-      .form__field
+      .input-field
         = f.label :password_confirmation, "Confirmar nueva contraseña"
         = f.password_field :password_confirmation, autocomplete: "off"
       .form__action
