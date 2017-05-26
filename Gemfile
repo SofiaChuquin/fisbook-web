@@ -28,7 +28,6 @@ gem 'normalize-rails'
 gem 'devise'
 # email validation
 gem 'validates_email_format_of'
-# sqlite3
 #bcrypt
 gem 'bcrypt', platforms: :ruby
 

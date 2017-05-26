@@ -23,11 +23,11 @@
   %thead
     %tr
       %td Nombre alumno
+      %td Primer parcial
+      %td Segundo parcial
       %td Primera práctica
       %td Segunda práctica
       %td Tercera práctica
-      %td Primer parcial
-      %td Segundo parcial
       %td Evaluación permanente
       %td Evaluación única
       %td Aplazado
@@ -38,11 +38,11 @@
       %tr
         %td= s.person.name
         - if !s.notes.blank?
+          %td= s.notes.first.first_exam
+          %td= s.notes.first.second_exam
           %td= s.notes.first.first_practice
           %td= s.notes.first.second_practice
           %td= s.notes.first.third_practice
-          %td= s.notes.first.first_exam
-          %td= s.notes.first.second_exam
           %td= s.notes.first.permanent
           %td= s.notes.first.unique_exam
           %td= s.notes.first.defer_exam
