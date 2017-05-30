@@ -1,16 +1,16 @@
-%h1 Notes
+%h1 Notas
 %table
   %thead
     %tr
-      %th First practice
-      %th Second practice
-      %th Third practice
-      %th First exam
-      %th Second exam
-      %th Permanent
-      %th Unique exam
-      %th Defer exam
-      %th Average
+      %th Primera práctica
+      %th Segunda práctica
+      %th Tercera práctica
+      %th Primer Parcial
+      %th Segundo Parcial
+      %th Evaluación Permanente
+      %th Examen Único
+      %th Examen Aplazado
+      %th Promedio Final
       %th{:colspan => "3"}
   %tbody
     - @notes.each do |note|
@@ -24,8 +24,8 @@
         %td= note.unique_exam
         %td= note.defer_exam
         %td= note.average
-        %td= link_to 'Show', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
-        %td= link_to 'Edit', edit_course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
-        %td= link_to 'Destroy', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
+        %td= link_to 'Editar', edit_course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
+        %td= link_to 'Eliminar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Note', new_course_student_note_path
+= link_to 'Nueva Nota', new_course_student_note_path

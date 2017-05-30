@@ -18,7 +18,7 @@ class NotesController < ApplicationController
     @student = Student.find(params[:student_id])
     @note = @course.notes.new(student_id: @student.id)
     if @student.notes.size >= 1
-      redirect_to root_path, notice: 'Alumno ya cuenta con nota del curso'
+      redirect_to root_path, notice: 'Estudiante ya cuenta con nota del curso.'
     end
   end
 
@@ -32,7 +32,6 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    p average.inspect + '====================='
     @course = Course.find(params[:course_id])
     @student = Student.find(params[:student_id])
     @note = Note.new(note_params.merge(course_id: @course.id, student_id: @student.id, average: average))
@@ -53,7 +52,6 @@ class NotesController < ApplicationController
   def update
     @course = Course.find(params[:course_id])
     @student = Student.find(params[:student_id])
-    p average.inspect + '====================='
     respond_to do |format|
       if @note.update(note_params.merge(average: average))
         format.html { redirect_to course_student_note_path(id: @note.id, course_id: @course.id, student_id: @student.id), notice: 'Note was successfully updated.' }
@@ -70,7 +68,7 @@ class NotesController < ApplicationController
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to course_student_notes_path, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to course_student_notes_path, notice: 'Nota eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

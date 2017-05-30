@@ -3,10 +3,9 @@
   %table.responsive-table.striped
     %thead
       %tr
-        %th ID
         %th Apellidos
         %th Nombres
-        %th Dni
+        %th DNI
         %th Teléfono
         %th Correo electrónico
         %th Género
@@ -16,7 +15,6 @@
     %tbody
       - @students.each do |student|
         %tr
-          %td= student.id
           %td= student.person.lastname
           %td= student.person.name
           %td= student.person.dni
@@ -27,6 +25,6 @@
           %td= student.turn
           %td= link_to 'Mostrar', student
           %td= link_to 'Editar', edit_student_path(student)
-          %td= link_to 'Eliminar', student, method: :delete, data: { confirm: 'Estás seguro?' }
+          %td= link_to 'Eliminar', student, method: :delete, data: { confirm: '¿Está seguro?' }
   %br/
-  = link_to 'Agregar alumno', new_student_path
+  = link_to 'Agregar estudiante', new_student_path

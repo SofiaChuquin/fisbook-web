@@ -30,7 +30,7 @@ class ExecutivesController < ApplicationController
 
     respond_to do |format|
       if @executive.save
-        format.html { redirect_to @executive, notice: 'Executive was successfully created.' }
+        format.html { redirect_to @executive, notice: 'Directivo creado exitosamente.' }
         format.json { render :show, status: :created, location: @executive }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class ExecutivesController < ApplicationController
   def update
     respond_to do |format|
       if @executive.update(executive_params)
-        format.html { redirect_to @executive, notice: 'Executive was successfully updated.' }
+        format.html { redirect_to @executive, notice: 'Directivo actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @executive }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class ExecutivesController < ApplicationController
   def destroy
     @executive.destroy
     respond_to do |format|
-      format.html { redirect_to executives_url, notice: 'Executive was successfully destroyed.' }
+      format.html { redirect_to executives_url, notice: 'Directivo eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +75,6 @@ class ExecutivesController < ApplicationController
     end
 
     def validate_rol
-      (redirect_to root_path, notice: 'Acceso solo para personal administrativo') unless current_person.person.rol == 'Directivo'
+      (redirect_to root_path, notice: 'Acceso solo para personal administrativo.') unless current_person.person.rol == 'Directivo'
     end
 end

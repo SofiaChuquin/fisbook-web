@@ -1,10 +1,10 @@
-%h1 Cycles
+%h1 Ciclos
 %table
   %thead
     %tr
-      %th Name
-      %th Semester
-      %th Year
+      %th Nombre
+      %th Semestre
+      %th Año
       %th{:colspan => "3"}
   %tbody
     - @cycles.each do |cycle|
@@ -12,8 +12,8 @@
         %td= cycle.name
         %td= cycle.semester
         %td= cycle.year
-        %td= link_to 'Show', cycle
-        %td= link_to 'Edit', edit_cycle_path(cycle)
-        %td= link_to 'Destroy', cycle, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', cycle
+        %td= link_to 'Editar', edit_cycle_path(cycle)
+        %td= link_to 'Eliminar', cycle, method: :delete, data: { confirm: '¿Está seguro?' }
 %br/
-= link_to 'New Cycle', new_cycle_path
+= link_to 'Nuevo Ciclo', new_cycle_path

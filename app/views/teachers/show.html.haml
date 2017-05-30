@@ -1,28 +1,28 @@
 .max-container
-  %h2 Mostrar profesor
+  %h2 Mostrar docente
   %p
-    %strong Lastname:
+    %strong Apellidos:
     = @teacher.person.lastname
   %p
-    %strong Name:
+    %strong Nombres:
     = @teacher.person.name
   %p
-    %strong Dni:
+    %strong DNI:
     = @teacher.person.dni
   %p
-    %strong Phone:
+    %strong Teléfono:
     = @teacher.person.phone
   %p
-    %strong Email:
+    %strong Correo electrónico:
     = @teacher.person.email
   %p
-    %strong Gender:
+    %strong Género:
     = @teacher.person.gender
   %p
-    %strong State:
+    %strong Estado:
     = @teacher.person.state
   %p
-    %strong Rank:
+    %strong Rango:
     = @teacher.rank
   .row
-    = link_to 'Edit', edit_teacher_path(@teacher), class: 'btn waves-effect waves-light col l4'
+    = link_to 'Editar', edit_teacher_path(@teacher), class: 'btn waves-effect waves-light col l4'

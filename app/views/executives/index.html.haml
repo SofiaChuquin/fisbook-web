@@ -3,14 +3,14 @@
   %table.responsive-table.striped
     %thead
       %tr
-        %th Lastname
-        %th Name
-        %th Dni
-        %th Phone
-        %th Email
-        %th Gender
-        %th State
-        %th Position
+        %th Apellidos
+        %th Nombres
+        %th DNI
+        %th Teléfono
+        %th Correo electrónico
+        %th Género
+        %th Estado
+        %th Puesto
         %th{:colspan => "3"}
     %tbody
       - @executives.each do |executive|
@@ -23,8 +23,8 @@
           %td= executive.person.gender
           %td= executive.person.state
           %td= executive.position
-          %td= link_to 'Show', executive
-          %td= link_to 'Edit', edit_executive_path(executive)
-          %td= link_to 'Destroy', executive, method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Mostrar', executive
+          %td= link_to 'Editar', edit_executive_path(executive)
+          %td= link_to 'Eliminar', executive, method: :delete, data: { confirm: '¿Está seguro?' }
   %br/
-  = link_to 'New Executive', new_executive_path
+  = link_to 'Agregar Personal Administrativo', new_executive_path

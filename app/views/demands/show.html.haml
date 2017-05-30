@@ -1,12 +1,12 @@
 %p
-  %strong Subject:
+  %strong Asunto:
   = @demand.subject
 %p
-  %strong Body:
+  %strong Mensaje:
   = @demand.body
 %p
-  %strong Document:
+  %strong Documento:
   = @demand.document
-= link_to 'Edit', edit_demand_path(@demand)
+= link_to 'Editar', edit_demand_path(@demand)
 |
-= link_to 'Back', demands_path
+= link_to 'Regresar', demands_path

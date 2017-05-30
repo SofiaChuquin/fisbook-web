@@ -1,28 +1,28 @@
 .max-container
-  %h2 Mostrar administrativo
+  %h2 Mostrar personal administrativo
   %p
-    %strong Lastname:
+    %strong Apellidos:
     = @executive.person.lastname
   %p
-    %strong Name:
+    %strong Nombres:
     = @executive.person.name
   %p
-    %strong Dni:
+    %strong DNI:
     = @executive.person.dni
   %p
-    %strong Phone:
+    %strong Teléfono:
     = @executive.person.phone
   %p
-    %strong Email:
+    %strong Correo electrónico:
     = @executive.person.email
   %p
-    %strong Gender:
+    %strong Género:
     = @executive.person.gender
   %p
-    %strong State:
+    %strong Estado:
     = @executive.person.state
   %p
-    %strong Position:
+    %strong Puesto:
     = @executive.position
   .row
-    = link_to 'Edit', edit_executive_path(@executive), class: 'btn waves-effect waves-light col l4'
+    = link_to 'Editar', edit_executive_path(@executive), class: 'btn waves-effect waves-light col l4'

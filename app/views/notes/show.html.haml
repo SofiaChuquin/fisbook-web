@@ -1,30 +1,30 @@
 %p
-  %strong First practice:
+  %strong Primera práctica:
   = @note.first_practice
 %p
-  %strong Second practice:
+  %strong Segunda práctica:
   = @note.second_practice
 %p
-  %strong Third practice:
+  %strong Tercera práctica:
   = @note.third_practice
 %p
-  %strong First exam:
+  %strong Primer parcial:
   = @note.first_exam
 %p
-  %strong Second exam:
+  %strong Segundo parcial:
   = @note.second_exam
 %p
-  %strong Permanent:
+  %strong Evaluación permanente:
   = @note.permanent
 %p
-  %strong Unique exam:
+  %strong Examen único:
   = @note.unique_exam
 %p
-  %strong Defer exam:
+  %strong Examen aplazadp:
   = @note.defer_exam
 %p
-  %strong Average:
+  %strong ¨Promedio final:
   = @note.average
-= link_to 'Edit', edit_course_student_note_path(@note)
+= link_to 'Editar', edit_course_student_note_path(@note)
 |
-= link_to 'Back', course_student_notes_path
+= link_to 'Regresar', course_student_notes_path

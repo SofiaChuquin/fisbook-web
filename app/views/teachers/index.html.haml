@@ -1,16 +1,16 @@
 .max-container
-  %h2 Teachers
+  %h2 Docentes
   %table.responsive-table.striped
     %thead
       %tr
-        %th Lastname
-        %th Name
-        %th Dni
-        %th Phone
-        %th Email
-        %th Gender
-        %th State
-        %th Rank
+        %th Apellidos
+        %th Nombres
+        %th DNI
+        %th Teléfono
+        %th Correo electrónico
+        %th Género
+        %th Estado
+        %th Rango
         %th{:colspan => "3"}
     %tbody
       - @teachers.each do |teacher|
@@ -22,8 +22,8 @@
           %td= teacher.person.email
           %td= teacher.person.gender
           %td= teacher.rank
-          %td= link_to 'Show', teacher
-          %td= link_to 'Edit', edit_teacher_path(teacher)
-          %td= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' }
+          %td= link_to 'Mostrar', teacher
+          %td= link_to 'Editar', edit_teacher_path(teacher)
+          %td= link_to 'Eliminar', teacher, method: :delete, data: { confirm: '¿Está seguro?' }
   %br/
-  = link_to 'New Teacher', new_teacher_path
+  = link_to 'Agregar Docente', new_teacher_path

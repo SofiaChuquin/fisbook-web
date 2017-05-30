@@ -1,10 +1,10 @@
-%h1 Enrollments
+%h1 Matrículas
 %table
   %thead
     %tr
-      %th Voucher
-      %th Active
-      %th Student
+      %th Recibo
+      %th Activo
+      %th Estudiante
       %th{:colspan => "3"}
   %tbody
     - @enrollments.each do |enrollment|
@@ -12,8 +12,8 @@
         %td= enrollment.voucher
         %td= enrollment.active
         %td= enrollment.student.person.name
-        %td= link_to 'Show', cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id])
-        %td= link_to 'Edit', edit_cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id])
-        %td= link_to 'Destroy', cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id]), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id])
+        %td= link_to 'Editar', edit_cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id])
+        %td= link_to 'Eliminar', cycle_enrollment_path(id: enrollment.id, cycle_id: params[:cycle_id]), method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Enrollment', new_cycle_enrollment_path
+= link_to 'Nueva Matrícula', new_cycle_enrollment_path

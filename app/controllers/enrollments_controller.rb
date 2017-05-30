@@ -22,7 +22,10 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/1/edit
   def edit
+    p params.inspect + '======='
     @students = Student.all
+    @cycle = Cycle.find(params[:cycle_id])
+    @enrollment = Enrollment.find(params[:id])
   end
 
   # POST /enrollments
@@ -34,7 +37,7 @@ class EnrollmentsController < ApplicationController
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Matrícula creada exitosamente.' }
         format.json { render :show, status: :created, location: @enrollment }
       else
         format.html { render :new }
@@ -50,7 +53,7 @@ class EnrollmentsController < ApplicationController
 
     respond_to do |format|
       if @enrollment.update(enrollment_params)
-        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Enrollment was successfully updated.' }
+        format.html { redirect_to cycle_enrollment_path(id: @enrollment.id, cycle_id: @cycle.id), notice: 'Matrícula actualizada exitosamente.' }
         format.json { render :show, status: :ok, location: @enrollment }
       else
         format.html { render :edit }
@@ -64,7 +67,7 @@ class EnrollmentsController < ApplicationController
   def destroy
     @enrollment.destroy
     respond_to do |format|
-      format.html { redirect_to cycle_enrollments_path, notice: 'Enrollment was successfully destroyed.' }
+      format.html { redirect_to cycle_enrollments_path, notice: 'Matrícula eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end

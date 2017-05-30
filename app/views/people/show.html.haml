@@ -1,27 +1,27 @@
 %p
-  %strong Lastname:
+  %strong Apellidos:
   = @person.lastname
 %p
-  %strong Name:
+  %strong Nombres:
   = @person.name
 %p
-  %strong Dni:
+  %strong DNI:
   = @person.dni
 %p
-  %strong Phone:
+  %strong Teléfono:
   = @person.phone
 %p
-  %strong Email:
+  %strong Correo electrónico:
   = @person.email
 %p
-  %strong Gender:
+  %strong Género:
   = @person.gender
 %p
-  %strong State:
+  %strong Estado:
   = @person.state
 %p
   %strong Rol:
   = @person.rol
-= link_to 'Edit', edit_person_path(@person)
+= link_to 'Editar', edit_person_path(@person)
 |
-= link_to 'Back', people_path
+= link_to 'Regresar', people_path

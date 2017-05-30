@@ -1,14 +1,14 @@
-%h1 People
+%h1 Personas
 %table
   %thead
     %tr
-      %th Lastname
-      %th Name
-      %th Dni
-      %th Phone
-      %th Email
-      %th Gender
-      %th State
+      %th Apellidos
+      %th Nombres
+      %th DNI
+      %th Teléfono
+      %th Correo electrónico
+      %th Género
+      %th Estado
       %th Rol
       %th{:colspan => "3"}
   %tbody
@@ -22,8 +22,8 @@
         %td= person.gender
         %td= person.state
         %td= person.rol
-        %td= link_to 'Show', person
-        %td= link_to 'Edit', edit_person_path(person)
-        %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', person
+        %td= link_to 'Editar', edit_person_path(person)
+        %td= link_to 'Eliminar', person, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Person', new_person_path
+= link_to 'Nueva Persona', new_person_path

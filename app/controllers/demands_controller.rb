@@ -28,7 +28,7 @@ class DemandsController < ApplicationController
 
     respond_to do |format|
       if @demand.save
-        format.html { redirect_to @demand, notice: 'Demand was successfully created.' }
+        format.html { redirect_to @demand, notice: 'Reclamo creado exitosamente.' }
         format.json { render :show, status: :created, location: @demand }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DemandsController < ApplicationController
   def update
     respond_to do |format|
       if @demand.update(demand_params)
-        format.html { redirect_to @demand, notice: 'Demand was successfully updated.' }
+        format.html { redirect_to @demand, notice: 'Reclamo actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @demand }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DemandsController < ApplicationController
   def destroy
     @demand.destroy
     respond_to do |format|
-      format.html { redirect_to demands_url, notice: 'Demand was successfully destroyed.' }
+      format.html { redirect_to demands_url, notice: 'Reclamo eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
