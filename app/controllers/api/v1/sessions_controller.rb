@@ -1,13 +1,21 @@
 class Api::V1::SessionsController < ApplicationController
-
+    protect_from_forgery with: :null_session
+    skip_before_action :authenticate_user!
     def create
-        user = User.find_by_email(params[:user][:email])
-        if user.valid_password?(params[:user][:password])
-            user.get_token
-            render json: {error: {message: 'Authentication successfully.', user: user, status: 401}}, status: 401
-        else
-            puts 'Password is wrong'
-            render json: {error: {message: 'Authentication failed.', status: 401}}, status: 401
+        begin
+            user = User.find_by_email(params[:user][:email])
+            if user.nil?
+                puts 'Email not found'
+                render json: {error: {message: 'Authentication failed. Unregistered user', status: 401}}, status: 401
+            elsif user.valid_password?(params[:user][:password])
+                user.get_token
+                render json: {valid: {message: 'Authentication successfully.', user: user, status: 401}}, status: 401
+            else
+                puts 'Password is wrong'
+                render json: {error: {message: 'Authentication failed. Password is wrong', status: 401}}, status: 401
+            end
+        rescue Exception => e
+            render json: {error: {message: "Error in Authentication. #{e}" , details: e.backtrace[0], status: 500}}, status: 500
         end
     end
 end
