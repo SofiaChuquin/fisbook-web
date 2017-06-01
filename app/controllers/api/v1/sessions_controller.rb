@@ -9,7 +9,7 @@ class Api::V1::SessionsController < ApplicationController
                 render json: {error: {message: 'Authentication failed. Unregistered user', status: 401}}, status: 401
             elsif user.valid_password?(params[:user][:password])
                 user.get_token
-                render json: {valid: {message: 'Authentication successfully.', user: user, status: 200}}, status: 200
+                render json: {valid: {message: 'Authentication successfully.', user: user, person: user.person, status: 200}}, status: 200
             else
                 puts 'Password is wrong'
                 render json: {error: {message: 'Authentication failed. Password is wrong', status: 401}}, status: 401
