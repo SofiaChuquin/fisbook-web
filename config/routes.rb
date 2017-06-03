@@ -24,9 +24,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  namespace :api do 
+  namespace :api, :defaults => { :format => 'json' } do
     namespace :v1 do 
-        resources :notes
-      end 
+      namespace :sessions do
+        post :create
+        delete :destroy
+      end
+      resources :notes
+    end 
   end 
 end
