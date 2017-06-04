@@ -9,12 +9,14 @@ p.alert,
   border: 1px solid #4527A0;
   color: #fff;
   border-radius: 20px;
+  text-transform: none;
 }
 
 .btn waves-effect waves-light {
   background-color: #4527A0;
   border: 1px solid #4527A0;
   color: #fff;
+  text-transform: none;
 }
 
 .side-nav li > a.btn {
@@ -40,6 +42,14 @@ p.alert,
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1em;
+}
+
+.accion{
+  @extend .deep-purple-text, .text-darken-1;
+}
+
+.iconos{
+  @extend .deep-purple-text, .text-darken-1;
 }
 
 form {

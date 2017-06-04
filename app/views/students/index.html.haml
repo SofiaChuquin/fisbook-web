@@ -1,5 +1,8 @@
 .max-container
-  %h2 Estudiantes
+  %div{:style => "display: inline-block"}
+    %h2 Estudiantes 
+  %div{:style => "display: inline-block"}
+    =image_tag "students.png", class: 'imagen'
   %table.responsive-table.striped
     %thead
       %tr
@@ -23,8 +26,12 @@
           %td= student.person.gender
           %td= student.person.state
           %td= student.turn
-          %td= link_to 'Mostrar', student
-          %td= link_to 'Editar', edit_student_path(student)
-          %td= link_to 'Eliminar', student, method: :delete, data: { confirm: '¿Está seguro?' }
+          %td= link_to 'Mostrar', student, class: 'accion'
+          %td= link_to 'Editar', edit_student_path(student), class: 'accion'
+          %td= link_to 'Eliminar', student, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'accion'
   %br/
-  = link_to 'Agregar estudiante', new_student_path
+  .row.actions
+    .col.s12.m6.l5
+      %a.waves-effect.waves-light.btn{:href => "#{url_for(new_student_path)}"} Agregar estudiante
+
+    

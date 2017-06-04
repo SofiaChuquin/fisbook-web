@@ -1,12 +1,13 @@
-%p
+.max-container
+ %p
   %strong Recibo:
   = @enrollment.voucher
-%p
+ %p
   %strong Activo:
   = @enrollment.active
-%p
+ %p
   %strong Estudiante:
   = @enrollment.student.person.name
-= link_to 'Editar', edit_cycle_enrollment_path(params[:cycle_id], @enrollment.id)
-|
-= link_to 'Regresar', cycle_path(params[:cycle_id])
+ = link_to 'Editar', edit_cycle_enrollment_path(params[:cycle_id], @enrollment.id), class: 'accion'
+ |
+ = link_to 'Regresar', cycle_path(params[:cycle_id]), class: 'accion'

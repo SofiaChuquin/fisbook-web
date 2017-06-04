@@ -1,5 +1,8 @@
 .max-container
-  %h2 Docentes
+  %div{:style => "display: inline-block"}
+    %h2 Docentes
+  %div{:style => "display: inline-block"}
+    =image_tag "teachers.png", class: 'imagen'
   %table.responsive-table.striped
     %thead
       %tr
@@ -22,8 +25,9 @@
           %td= teacher.person.email
           %td= teacher.person.gender
           %td= teacher.rank
-          %td= link_to 'Mostrar', teacher
-          %td= link_to 'Editar', edit_teacher_path(teacher)
-          %td= link_to 'Eliminar', teacher, method: :delete, data: { confirm: '¿Está seguro?' }
+          %td= link_to 'Mostrar', teacher, class: 'accion'
+          %td= link_to 'Editar', edit_teacher_path(teacher), class: 'accion'
+          %td= link_to 'Eliminar', teacher, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'accion'
   %br/
-  = link_to 'Agregar Docente', new_teacher_path
+  %div
+    %a.waves-effect.waves-light.btn{:href => "#{url_for(new_teacher_path)}"} Agregar docente

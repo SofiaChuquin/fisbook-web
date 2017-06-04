@@ -1,112 +1,113 @@
-- if current_person.person.rol == 'Estudiante'
-  %h4= @course.name
-  %table
-    %thead
-      %tr
-        %td Nombre alumno
-        %td Primer parcial
-        %td Segundo parcial
-        %td Primera práctica
-        %td Segunda práctica
-        %td Tercera práctica
-        %td Evaluación permanente
-        %td= 'Evaluación única' if @course.type_evaluation == 'Unico'
-        %td Aplazado
-        %td Promedio
-    %tbody
-      - @students.each do |s|
+.max-container
+  - if current_person.person.rol == 'Estudiante'
+    %h4= @course.name
+    %table
+      %thead
         %tr
-          %td= s.person.name
-          - if !s.notes.blank?
-            %td= s.notes.first.first_exam
-            %td= s.notes.first.second_exam
-            %td= s.notes.first.first_practice
-            %td= s.notes.first.second_practice
-            %td= s.notes.first.third_practice
-            %td= s.notes.first.permanent
-            %td= s.notes.first.unique_exam if @course.type_evaluation == 'Unico'
-            %td= s.notes.first.defer_exam
-            %td= sprintf('%.2f', s.notes.first.average)
-          - else
-            %td --
-            %td --
-            %td --
-            %td --
-            %td --
-            %td --
-            %td= '--' if @course.type_evaluation == 'Unico'
-            %td --
-            %td --
+          %td Nombre alumno
+          %td Primer parcial
+          %td Segundo parcial
+          %td Primera práctica
+          %td Segunda práctica
+          %td Tercera práctica
+          %td Evaluación permanente
+          %td= 'Evaluación única' if @course.type_evaluation == 'Unico'
+          %td Aplazado
+          %td Promedio
+      %tbody
+        - @students.each do |s|
+          %tr
+            %td= s.person.name
+            - if !s.notes.blank?
+              %td= s.notes.first.first_exam
+              %td= s.notes.first.second_exam
+              %td= s.notes.first.first_practice
+              %td= s.notes.first.second_practice
+              %td= s.notes.first.third_practice
+              %td= s.notes.first.permanent
+              %td= s.notes.first.unique_exam if @course.type_evaluation == 'Unico'
+              %td= s.notes.first.defer_exam
+              %td= sprintf('%.2f', s.notes.first.average)
+            - else
+              %td --
+              %td --
+              %td --
+              %td --
+              %td --
+              %td --
+              %td= '--' if @course.type_evaluation == 'Unico'
+              %td --
+              %td --
 
-- else
-
-  %h4= @course.name
-  = link_to 'Editar', edit_course_path(@course)
-  |
-  - if current_person.person.rol == 'Docente'
-    = link_to 'Regresar', root_path
   - else
-    = link_to 'Regresar', courses_path
-  %br
-  %br
-  %strong Créditos
-  = @course.credits
-  |
-  %strong Tipo de evaluación:
-  = @course.type_evaluation
-  |
-  %strong Horas:
-  = @course.hours
-  |
-  %strong Docente:
-  = @course.teacher.person.name
-  |
-  %strong Ciclo:
-  = "#{@course.cycle.name} #{@course.cycle.year}-#{@course.cycle.semester}"
-  %br
-  %br
-  %hr
 
-  %table
-    %thead
-      %tr
-        %td Nombre alumno
-        %td Primer parcial
-        %td Segundo parcial
-        %td Primera práctica
-        %td Segunda práctica
-        %td Tercera práctica
-        %td Evaluación permanente
-        %td= 'Evaluación única' if @course.type_evaluation == 'Unico'
-        %td Aplazado
-        %td Promedio
-        %td Acción
-    %tbody
-      - @students.each do |s|
+    %h4= @course.name
+    = link_to 'Editar', edit_course_path(@course), class: 'accion'
+    |
+    - if current_person.person.rol == 'Docente'
+      = link_to 'Regresar', root_path, class: 'accion'
+    - else
+      = link_to 'Regresar', cycle_path(params[:cycle_id]), class: 'accion'
+    %br
+    %br
+    %strong Créditos
+    = @course.credits
+    |
+    %strong Tipo de evaluación:
+    = @course.type_evaluation
+    |
+    %strong Horas:
+    = @course.hours
+    |
+    %strong Docente:
+    = @course.teacher.person.name
+    |
+    %strong Ciclo:
+    = "#{@course.cycle.name} #{@course.cycle.year}-#{@course.cycle.semester}"
+    %br
+    %br
+    %hr
+
+    %table
+      %thead
         %tr
-          %td= s.person.name
-          - if !s.notes.blank?
-            %td= s.notes.first.first_exam
-            %td= s.notes.first.second_exam
-            %td= s.notes.first.first_practice
-            %td= s.notes.first.second_practice
-            %td= s.notes.first.third_practice
-            %td= s.notes.first.permanent
-            %td= s.notes.first.unique_exam if @course.type_evaluation == 'Unico'
-            %td= s.notes.first.defer_exam
-            %td= sprintf('%.2f', s.notes.first.average)
-            %td= link_to 'Editar', edit_course_student_note_path(@course.id, s.id, s.notes.first.id)
-          - else
-            %td --
-            %td --
-            %td --
-            %td --
-            %td --
-            %td --
-            %td= '--' if @course.type_evaluation == 'Unico'
-            %td --
-            %td --
-            %td= link_to 'Añadir nota', new_course_student_note_path(@course.id, s.id)
+          %td Nombre alumno
+          %td Primer parcial
+          %td Segundo parcial
+          %td Primera práctica
+          %td Segunda práctica
+          %td Tercera práctica
+          %td Evaluación permanente
+          %td= 'Evaluación única' if @course.type_evaluation == 'Unico'
+          %td Aplazado
+          %td Promedio
+          %td Acción
+      %tbody
+        - @students.each do |s|
+          %tr
+            %td= s.person.name
+            - if !s.notes.blank?
+              %td= s.notes.first.first_exam
+              %td= s.notes.first.second_exam
+              %td= s.notes.first.first_practice
+              %td= s.notes.first.second_practice
+              %td= s.notes.first.third_practice
+              %td= s.notes.first.permanent
+              %td= s.notes.first.unique_exam if @course.type_evaluation == 'Unico'
+              %td= s.notes.first.defer_exam
+              %td= sprintf('%.2f', s.notes.first.average)
+              %td= link_to 'Editar', edit_course_student_note_path(@course.id, s.id, s.notes.first.id), class: 'accion'
+            - else
+              %td --
+              %td --
+              %td --
+              %td --
+              %td --
+              %td --
+              %td= '--' if @course.type_evaluation == 'Unico'
+              %td --
+              %td --
+              %td= link_to 'Añadir nota', new_course_student_note_path(@course.id, s.id), class: 'accion'
 
 
 

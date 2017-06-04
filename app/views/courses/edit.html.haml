@@ -1,5 +1,6 @@
-%h1 Editar Curso
-= render 'form', course: @course
-= link_to 'Mostrar', @course
-|
-= link_to 'Regresar', courses_path
+.max-container
+	%h1 Editar Curso
+	= render 'form', course: @course
+	= link_to 'Mostrar', cycle_course_path(@course), class: 'accion'
+	|
+	= link_to 'Regresar', cycle_course_path(@course), class: 'accion'

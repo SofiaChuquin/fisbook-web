@@ -1,5 +1,8 @@
 .max-container
-  %h2 Personal administrativo
+  %div{:style => "display: inline-block"}
+    %h2 Personal administrativo
+  %div{:style => "display: inline-block"}
+    =image_tag "executives.png", class: 'imagen'
   %table.responsive-table.striped
     %thead
       %tr
@@ -23,8 +26,9 @@
           %td= executive.person.gender
           %td= executive.person.state
           %td= executive.position
-          %td= link_to 'Mostrar', executive
-          %td= link_to 'Editar', edit_executive_path(executive)
-          %td= link_to 'Eliminar', executive, method: :delete, data: { confirm: '¿Está seguro?' }
+          %td= link_to 'Mostrar', executive, class: 'accion'
+          %td= link_to 'Editar', edit_executive_path(executive), class: 'accion'
+          %td= link_to 'Eliminar', executive, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'accion'
   %br/
-  = link_to 'Agregar Personal Administrativo', new_executive_path
+  %div
+    %a.waves-effect.waves-light.btn{:href => "#{url_for(new_executive_path)}"} Agregar personal administrativo
