@@ -4,10 +4,36 @@ p.alert,
   margin: 0;
 }
 
+.btn {
+  background-color: #4527A0;
+  border: 1px solid #4527A0;
+  color: #fff;
+  border-radius: 20px;
+}
+
 .btn waves-effect waves-light {
   background-color: #4527A0;
   border: 1px solid #4527A0;
   color: #fff;
+}
+
+.side-nav li > a.btn {
+  margin: 10px 40px;
+}
+
+.side-nav li > a {
+  color: rgba(0, 0, 0, 0.87);
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 32px;
+  text-transform: none;
+}
+
+.side-nav .userView .name{
+  margin-top: 0px;
 }
 
 .max-container {
@@ -39,4 +65,8 @@ form {
   & + .input-field, & + .form__action {
     margin-top: 1em;
   }
+}
+
+.login__links > a{
+  @extend .deep-purple-text, .text-darken-1;
 }
