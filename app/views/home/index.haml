@@ -1,100 +1,14 @@
-.row
-  .col.s3.m4.l3
-    %ul#slide-out.side-nav{:style => "-webkit-transform: translateX(0%); transform: translateX(0%);"}
-      %li
-        .userView
-          .background
-            =image_tag "fis.jpg"
-          %a{:href => "#!user"}
-            - if current_person.person.rol == 'Estudiante'
-              =image_tag "student-man.png"
-            - if current_person.person.rol == 'Docente'
-              =image_tag "teacher-man.png"
-            - if current_person.person.rol == 'Directivo'
-              =image_tag "man.png"
-          %a{:href => "#!name"}
-            %span.black-text.name 
-              %h5
-                %strong= "#{current_person.person.name} #{current_person.person.lastname}"
-          %a{:href => "#!email"}
-            %span.black-text.email
-              %h6= current_person.person.rol
-      %li
-        %a.waves-effect.waves-light.btn{"data-method" => "delete", :href => "#{url_for(destroy_user_session_path)}"} Cerrar sesión
-      %li
-        .divider
-      %li
-        %a.subheader Comunidad
-      %li
-        - if current_person.person.rol == 'Directivo'
-          %a.waves-effect{:href => "students"} Gestionar estudiantes
-          %a.waves-effect{:href => "teachers"} Gestionar docentes
-          %a.waves-effect{:href => "executives"} Gestionar personal administrativo
-        %li
-        .divider
-        %div
-          - if current_person.person.rol == 'Estudiante'
-            %a.subheader Mis Cursos
-            - @courses.each do |c|
-              = link_to c.name, c
-          - if current_person.person.rol == 'Docente'
-            %a.subheader Mis Cursos
-            %ul
-            - @courses.each do |c|
-              %li= link_to c.name, c
-          - if current_person.person.rol == 'Directivo'
-            %li
-              %a.subheader Ciclos
-            %ul
-            - @cycles.each do |c|
-              %li= link_to "#{c.name} #{c.year}-#{c.semester}", c
-            %li
-              %a.waves-effect.waves-light.btn{:href => "#{url_for(new_cycle_path)}"} Agregar nuevo ciclo    
-  .col.s9.m8.l9
-    %h2= "Bienvenido #{current_person.person.name} #{current_person.person.lastname}"
-    .row
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Primer Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Segundo Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Tercer Ciclo
-    .row
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Cuarto Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Quinto Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Sexto Ciclo
-    .row
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Séptimo Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Octavo Ciclo
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Noveno Ciclo
-    .row
-      .col.s12.m6.l3
-        .card.deep-purple.lighten-1
-          .card-content.white-text
-            %span.card-title Décimo Ciclo
-        
+- if current_person.person.rol == 'Directivo'
+	= provide(:title, "Ciclos")
+	.row
+		- @cycles.each do |c|
+			.col.s12.m6.l4
+				.card.orange.accent-4
+					.card-content
+						%span.card-title
+							= link_to "#{c.name} #{c.year}-#{c.semester}", c, class: 'white-text'
+	.fixed-action-btn
+		%a.btn-floating.btn-large.deep-purple{:href => "#{url_for(new_cycle_path)}"}
+			%i.large.material-icons add
+
 

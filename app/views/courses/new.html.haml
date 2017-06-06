@@ -1,4 +1,3 @@
-.max-container
-	%h1 Nuevo Curso
-	= render 'form', course: @course
-	= link_to 'Regresar', cycle_path(@cycle.id), class: 'accion'
+= provide(:title, "Nuevo curso")
+= render 'form', course: @course
+= link_to 'Regresar', cycle_path(@cycle.id), class: 'accion'

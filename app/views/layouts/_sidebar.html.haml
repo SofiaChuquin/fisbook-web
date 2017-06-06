@@ -1,0 +1,46 @@
+%ul#slide-out.side-nav.fixed
+  %li
+    .userView
+      .background.deep-purple.lighten-5
+      %a{:href => "#!user"}
+        - if current_person.person.rol == 'Estudiante'
+          =image_tag "student-man.png"
+        - if current_person.person.rol == 'Docente'
+          =image_tag "teacher-man.png"
+        - if current_person.person.rol == 'Directivo'
+          =image_tag "man.png"
+      %a{:href => "#!name"}
+        %span.black-text.name 
+          %h5
+            %strong= "#{current_person.person.name} #{current_person.person.lastname}"
+      %a{:href => "#!email"}
+        %span.black-text.email
+          %h6= current_person.person.rol
+  %li
+    %a.waves-effect.waves-light.btn{"data-method" => "delete", :href => "#{url_for(destroy_user_session_path)}"} Cerrar sesión  
+  %li
+    .divider
+    - if current_person.person.rol == 'Directivo'
+      %a.subheader Comunidad
+      %a.waves-effect{:href => "#{url_for(students_path)}"} Gestionar estudiantes
+      %a.waves-effect{:href => "#{url_for(teachers_path)}"} Gestionar docentes
+      %a.waves-effect{:href => "#{url_for(executives_path)}"} Gestionar personal administrativo
+    %li
+    .divider
+    %div
+      %li
+        - if current_person.person.rol == 'Estudiante'
+          %a.subheader Mis Cursos
+          %li
+          - @courses.each do |c|
+            = link_to c.name, c
+        - if current_person.person.rol == 'Docente'
+          %a.subheader Mis Cursos
+          %ul
+          - @courses.each do |c|
+            %li= link_to c.name, c
+        - if current_person.person.rol == 'Directivo'
+          %li
+            %a.subheader Ciclos
+          %li
+            %a.waves-effect{:href => "#{url_for(root_path)}"} Todos los ciclos

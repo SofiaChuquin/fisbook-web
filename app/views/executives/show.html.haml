@@ -1,28 +1,27 @@
-.max-container
-  %h2 Mostrar personal administrativo
-  %p
-    %strong Apellidos:
-    = @executive.person.lastname
-  %p
-    %strong Nombres:
-    = @executive.person.name
-  %p
-    %strong DNI:
-    = @executive.person.dni
-  %p
-    %strong Teléfono:
-    = @executive.person.phone
-  %p
-    %strong Correo electrónico:
-    = @executive.person.email
-  %p
-    %strong Género:
-    = @executive.person.gender
-  %p
-    %strong Estado:
-    = @executive.person.state
-  %p
-    %strong Puesto:
-    = @executive.position
-  .row
-    = link_to 'Editar', edit_executive_path(@executive), class: 'btn waves-effect waves-light col l4'
+= provide(:title, "Datos del personal administrativo")
+%p
+  %strong Apellidos:
+  = @executive.person.lastname
+%p
+  %strong Nombres:
+  = @executive.person.name
+%p
+  %strong DNI:
+  = @executive.person.dni
+%p
+  %strong Teléfono:
+  = @executive.person.phone
+%p
+  %strong Correo electrónico:
+  = @executive.person.email
+%p
+  %strong Género:
+  = @executive.person.gender
+%p
+  %strong Estado:
+  = @executive.person.state
+%p
+  %strong Puesto:
+  = @executive.position
+.row
+  = link_to 'Editar', edit_executive_path(@executive), class: 'btn waves-effect waves-light col l4'

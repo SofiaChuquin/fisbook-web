@@ -1,6 +1,5 @@
-.max-container
-	%h1 Editar Curso
-	= render 'form', course: @course
-	= link_to 'Mostrar', cycle_course_path(@course), class: 'accion'
-	|
-	= link_to 'Regresar', cycle_course_path(@course), class: 'accion'
+= provide(:title, "Editar curso")
+= render 'form', course: @course
+= link_to 'Mostrar', cycle_course_path(@course), class: 'accion'
+|
+= link_to 'Regresar', cycle_course_path(@course), class: 'accion'

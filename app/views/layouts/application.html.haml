@@ -6,9 +6,22 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body
+    = javascript_include_tag 'application'
     %p.notice= notice
     %p.alert= alert
-    = yield
+    - if !current_person.nil?
+      = render 'layouts/sidebar'
+      %header
+        %nav.top-nav.deep-purple
+          .container
+            .nav-wrapper
+              %a.page-title
+                = yield(:title)
+
+      %main
+        .container
+          = yield
+    - else
+      = yield

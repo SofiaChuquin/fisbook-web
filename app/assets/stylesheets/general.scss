@@ -6,9 +6,7 @@ p.alert,
 
 .btn {
   background-color: #4527A0;
-  border: 1px solid #4527A0;
   color: #fff;
-  border-radius: 20px;
   text-transform: none;
 }
 
@@ -38,11 +36,10 @@ p.alert,
   margin-top: 0px;
 }
 
-.max-container {
-  max-width: 1200px;
+.container {
+  width: 90%;
   margin: 0 auto;
-  padding: 0 1em;
-}
+} 
 
 .accion{
   @extend .deep-purple-text, .text-darken-1;
@@ -79,4 +76,22 @@ form {
 
 .login__links > a{
   @extend .deep-purple-text, .text-darken-1;
+}
+
+header, main, footer{
+  padding-left: 300px;
+} 
+
+.page-title{
+  line-height: 122px;
+  font-size: 36px;
+}
+
+.top-nav{
+  height: 122px;
+  box-shadow: none;
+}
+
+header{
+  margin-bottom: 40px;
 }

@@ -1,34 +1,31 @@
-.max-container
-  %div{:style => "display: inline-block"}
-    %h2 Personal administrativo
-  %div{:style => "display: inline-block"}
-    =image_tag "executives.png", class: 'imagen'
-  %table.responsive-table.striped
-    %thead
+= provide(:title, "Personal administrativo")
+%table.responsive-table.striped
+  %thead
+    %tr
+      %th Apellidos
+      %th Nombres
+      %th DNI
+      %th Teléfono
+      %th Correo electrónico
+      %th Género
+      %th Estado
+      %th Puesto
+      %th{:colspan => "3"}
+  %tbody
+    - @executives.each do |executive|
       %tr
-        %th Apellidos
-        %th Nombres
-        %th DNI
-        %th Teléfono
-        %th Correo electrónico
-        %th Género
-        %th Estado
-        %th Puesto
-        %th{:colspan => "3"}
-    %tbody
-      - @executives.each do |executive|
-        %tr
-          %td= executive.person.lastname
-          %td= executive.person.name
-          %td= executive.person.dni
-          %td= executive.person.phone
-          %td= executive.person.email
-          %td= executive.person.gender
-          %td= executive.person.state
-          %td= executive.position
-          %td= link_to 'Mostrar', executive, class: 'accion'
-          %td= link_to 'Editar', edit_executive_path(executive), class: 'accion'
-          %td= link_to 'Eliminar', executive, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'accion'
-  %br/
-  %div
-    %a.waves-effect.waves-light.btn{:href => "#{url_for(new_executive_path)}"} Agregar personal administrativo
+        %td= executive.person.lastname
+        %td= executive.person.name
+        %td= executive.person.dni
+        %td= executive.person.phone
+        %td= executive.person.email
+        %td= executive.person.gender
+        %td= executive.person.state
+        %td= executive.position
+        %td= link_to 'Mostrar', executive, class: 'accion'
+        %td= link_to 'Editar', edit_executive_path(executive), class: 'accion'
+        %td= link_to 'Eliminar', executive, method: :delete, data: { confirm: '¿Está seguro?' }, class: 'accion'
+  
+.fixed-action-btn
+  %a.btn-floating.btn-large.deep-purple{:href => "#{url_for(new_executive_path)}"}
+    %i.large.material-icons add

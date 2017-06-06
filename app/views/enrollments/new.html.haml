@@ -1,4 +1,3 @@
-.max-container
-	%h1 Nueva Matrícula
-	= render 'form', enrollment: @enrollment
-	= link_to 'Regresar', cycle_path(@cycle.id), class: 'accion'
+= provide(:title, "Nueva matrícula")
+= render 'form', enrollment: @enrollment
+= link_to 'Regresar', cycle_path(@cycle.id), class: 'accion'
