@@ -4,16 +4,49 @@ p.alert,
   margin: 0;
 }
 
+.btn {
+  background-color: #4527A0;
+  color: #fff;
+  text-transform: none;
+}
+
 .btn waves-effect waves-light {
   background-color: #4527A0;
   border: 1px solid #4527A0;
   color: #fff;
+  text-transform: none;
 }
 
-.max-container {
-  max-width: 1200px;
+.side-nav li > a.btn {
+  margin: 10px 40px;
+}
+
+.side-nav li > a {
+  color: rgba(0, 0, 0, 0.87);
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 32px;
+  text-transform: none;
+}
+
+.side-nav .userView .name{
+  margin-top: 0px;
+}
+
+.container {
+  width: 90%;
   margin: 0 auto;
-  padding: 0 1em;
+} 
+
+.accion{
+  @extend .deep-purple-text, .text-darken-1;
+}
+
+.iconos{
+  @extend .deep-purple-text, .text-darken-1;
 }
 
 form {
@@ -39,4 +72,26 @@ form {
   & + .input-field, & + .form__action {
     margin-top: 1em;
   }
+}
+
+.login__links > a{
+  @extend .deep-purple-text, .text-darken-1;
+}
+
+header, main, footer{
+  padding-left: 300px;
+} 
+
+.page-title{
+  line-height: 122px;
+  font-size: 36px;
+}
+
+.top-nav{
+  height: 122px;
+  box-shadow: none;
+}
+
+header{
+  margin-bottom: 40px;
 }

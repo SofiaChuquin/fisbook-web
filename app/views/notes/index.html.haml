@@ -1,4 +1,4 @@
-%h1 Notas
+= provide(:title, "Notas")
 %table
   %thead
     %tr
@@ -28,4 +28,4 @@
         %td= link_to 'Editar', edit_course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
         %td= link_to 'Eliminar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'Nueva Nota', new_course_student_note_path
+= link_to 'Nueva Nota', new_course_student_note_path, class: 'accion'

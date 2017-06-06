@@ -1,28 +1,27 @@
-.max-container
-  %h2 Mostrar docente
-  %p
-    %strong Apellidos:
-    = @teacher.person.lastname
-  %p
-    %strong Nombres:
-    = @teacher.person.name
-  %p
-    %strong DNI:
-    = @teacher.person.dni
-  %p
-    %strong Teléfono:
-    = @teacher.person.phone
-  %p
-    %strong Correo electrónico:
-    = @teacher.person.email
-  %p
-    %strong Género:
-    = @teacher.person.gender
-  %p
-    %strong Estado:
-    = @teacher.person.state
-  %p
-    %strong Rango:
-    = @teacher.rank
-  .row
-    = link_to 'Editar', edit_teacher_path(@teacher), class: 'btn waves-effect waves-light col l4'
+= provide(:title, "Datos del docente")
+%p
+  %strong Apellidos:
+  = @teacher.person.lastname
+%p
+  %strong Nombres:
+  = @teacher.person.name
+%p
+  %strong DNI:
+  = @teacher.person.dni
+%p
+  %strong Teléfono:
+  = @teacher.person.phone
+%p
+  %strong Correo electrónico:
+  = @teacher.person.email
+%p
+  %strong Género:
+  = @teacher.person.gender
+%p
+  %strong Estado:
+  = @teacher.person.state
+%p
+  %strong Rango:
+  = @teacher.rank
+.row
+  = link_to 'Editar', edit_teacher_path(@teacher), class: 'btn waves-effect waves-light col l4'

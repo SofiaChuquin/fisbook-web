@@ -1,29 +1,14 @@
-
-%h1= "Bienvenido #{current_person.person.name} #{current_person.person.lastname}"
-%h3= current_person.person.rol
-= link_to 'Cerrar sesión', destroy_user_session_path, :method => :delete
-%br
-%br
-%br
 - if current_person.person.rol == 'Directivo'
-  %h4= link_to 'Gestionar estudiantes', students_path
-  %h4= link_to 'Gestionar docentes', teachers_path
-  %h4= link_to 'Gestionar personal administrativo', executives_path
-%hr
-%div
-  - if current_person.person.rol == 'Estudiante'
-    %h4 Mis cursos
-    - @courses.each do |c|
-      = link_to c.name, c
-  - if current_person.person.rol == 'Docente'
-    %h4 Mis cursos
-    %ul
-    - @courses.each do |c|
-      %li= link_to c.name, c
-  - if current_person.person.rol == 'Directivo'
-    %h4 Ciclos
-    %ul
-    - @cycles.each do |c|
-      %li= link_to "#{c.name} #{c.year}-#{c.semester}", c
-    %br
-    = link_to 'Agregar nuevo ciclo', new_cycle_path
+	= provide(:title, "Ciclos")
+	.row
+		- @cycles.each do |c|
+			.col.s12.m6.l4
+				.card.orange.accent-4
+					.card-content
+						%span.card-title
+							= link_to "#{c.name} #{c.year}-#{c.semester}", c, class: 'white-text'
+	.fixed-action-btn
+		%a.btn-floating.btn-large.deep-purple{:href => "#{url_for(new_cycle_path)}"}
+			%i.large.material-icons add
+
+

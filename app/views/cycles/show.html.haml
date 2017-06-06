@@ -1,19 +1,23 @@
-%h1= "#{@cycle.name} #{@cycle.year}-#{@cycle.semester}"
-= link_to 'Editar', edit_cycle_path(@cycle)
--# |
--# = link_to 'Regresar', cycles_path
-
+= provide(:title, "Datos del ciclo")
+%div{:style => "display: inline-block"}
+	%h3= "#{@cycle.name} #{@cycle.year}-#{@cycle.semester}"
+%div{:style => "display: inline-block"}
+	%a.accion{:href => "#{url_for(edit_cycle_path(@cycle))}"}
+		%i.small.material-icons.iconos mode_edit
 %br
-%br
-%br
-%h4= link_to 'Gestionar matrículas', new_cycle_enrollment_path(@cycle.id)
+%h5 Matrículas
 %ul
 - @cycle.enrollments.each do |e|
-  %li= link_to e.voucher, cycle_enrollment_path(@cycle.id, e.id)
+	%li= link_to e.voucher, cycle_enrollment_path(@cycle.id, e.id), class: 'accion'
+%br
+%a.waves-effect.waves-light.btn{:href => "#{url_for(new_cycle_enrollment_path(@cycle.id))}"} Gestionar matrículas
+%br
+%br
 %hr
-%h4 Cursos
+%h5 Cursos
 %ul
 - @cycle.courses.each do |c|
-  %li= link_to c.name, cycle_course_path(@cycle.id, c.id)
-  %br
-= link_to 'Agregar curso', new_cycle_course_path(@cycle.id)
+	%li= link_to c.name, cycle_course_path(@cycle.id, c.id), class: 'accion'
+	%br
+%a.waves-effect.waves-light.btn{:href => "#{url_for(new_cycle_course_path(@cycle.id))}"} Agregar curso
+

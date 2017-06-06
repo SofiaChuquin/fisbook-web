@@ -1,20 +1,23 @@
-= form_for([@cycle, @enrollment]) do |f|
-  - if enrollment.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(enrollment.errors.count, "error")
-        prohibited this enrollment from being saved:
-      %ul
-        - enrollment.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :voucher
-    = f.text_field :voucher
-  .field
-    = f.label :active
-    = f.text_field :active
-  .field
-    = f.label :student_id
-    = f.select :student_id, @students.map { |s| [s.person.name + ' ' + s.person.lastname, s.id] }
-  .actions
-    = f.submit
+.max-container
+  = form_for([@cycle, @enrollment]) do |f|
+    - if enrollment.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(enrollment.errors.count, "error")
+          prohibited this enrollment from being saved:
+        %ul
+          - enrollment.errors.full_messages.each do |message|
+            %li= message
+    .field
+      = f.label :voucher
+      = f.text_field :voucher
+    .field
+      = f.label :active
+      = f.text_field :active
+    .field
+      = f.label :student_id
+      = f.select :student_id, @students.map { |s| [s.person.name + ' ' + s.person.lastname, s.id] }
+    .row.actions
+      .col.s12.m6.l5
+        %button.btn.waves-effect.waves-light{type: "submit"} Guardar
+      

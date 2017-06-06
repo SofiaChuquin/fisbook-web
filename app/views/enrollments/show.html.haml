@@ -1,12 +1,16 @@
+= provide(:title, "Datos de la matrícula")
 %p
-  %strong Recibo:
-  = @enrollment.voucher
+%strong Recibo:
+= @enrollment.voucher
 %p
-  %strong Activo:
-  = @enrollment.active
+%strong Activo:
+= @enrollment.active
 %p
-  %strong Estudiante:
-  = @enrollment.student.person.name
-= link_to 'Editar', edit_cycle_enrollment_path(params[:cycle_id], @enrollment.id)
+%strong Estudiante:
+= @enrollment.student.person.name
+%br
+%br
+
+= link_to 'Editar', edit_cycle_enrollment_path(params[:cycle_id], @enrollment.id), class: 'accion'
 |
-= link_to 'Regresar', cycle_path(params[:cycle_id])
+= link_to 'Regresar', cycle_path(params[:cycle_id]), class: 'accion'

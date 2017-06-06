@@ -1,5 +1,5 @@
 - if current_person.person.rol == 'Estudiante'
-  %h4= @course.name
+  = provide(:title, @course.name)
   %table
     %thead
       %tr
@@ -40,13 +40,13 @@
 
 - else
 
-  %h4= @course.name
-  = link_to 'Editar', edit_course_path(@course)
+  = provide(:title, @course.name)
+  = link_to 'Editar', edit_course_path(@course), class: 'accion'
   |
   - if current_person.person.rol == 'Docente'
-    = link_to 'Regresar', root_path
+    = link_to 'Regresar', root_path, class: 'accion'
   - else
-    = link_to 'Regresar', courses_path
+    = link_to 'Regresar', cycle_path(params[:cycle_id]), class: 'accion'
   %br
   %br
   %strong Créditos
@@ -95,7 +95,7 @@
             %td= s.notes.first.unique_exam if @course.type_evaluation == 'Unico'
             %td= s.notes.first.defer_exam
             %td= sprintf('%.2f', s.notes.first.average)
-            %td= link_to 'Editar', edit_course_student_note_path(@course.id, s.id, s.notes.first.id)
+            %td= link_to 'Editar', edit_course_student_note_path(@course.id, s.id, s.notes.first.id), class: 'accion'
           - else
             %td --
             %td --
@@ -106,7 +106,7 @@
             %td= '--' if @course.type_evaluation == 'Unico'
             %td --
             %td --
-            %td= link_to 'Añadir nota', new_course_student_note_path(@course.id, s.id)
+            %td= link_to 'Añadir nota', new_course_student_note_path(@course.id, s.id), class: 'accion'
 
 
 

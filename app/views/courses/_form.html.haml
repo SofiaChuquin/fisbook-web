@@ -23,5 +23,6 @@
     = f.label :teacher_id
     = f.select :teacher_id, @teachers.map { |t| [t.person.name + ' ' + t.person.lastname, t.id] }
 
-  .actions
-    = f.submit
+  .row.actions
+    .col.s12.m6.l5
+      %button.btn.waves-effect.waves-light{type: "submit"} Guardar

@@ -1,28 +1,27 @@
-.max-container
-  %h2 Mostrar estudiante
-  %p
-    %strong Apellidos:
-    = @student.person.lastname
-  %p
-    %strong Nombres:
-    = @student.person.name
-  %p
-    %strong DNI:
-    = @student.person.dni
-  %p
-    %strong Teléfono:
-    = @student.person.phone
-  %p
-    %strong Correo electrónico:
-    = @student.person.email
-  %p
-    %strong Género:
-    = @student.person.gender
-  %p
-    %strong Estado:
-    = @student.person.state
-  %p
-    %strong Turno:
-    = @student.turn
-  .row
-    = link_to 'Editar', edit_student_path(@student), class: 'btn waves-effect waves-light col l4'
+= provide(:title, "Datos del estudiante")
+%p
+  %strong Apellidos:
+  = @student.person.lastname
+%p
+  %strong Nombres:
+  = @student.person.name
+%p
+  %strong DNI:
+  = @student.person.dni
+%p
+  %strong Teléfono:
+  = @student.person.phone
+%p
+  %strong Correo electrónico:
+  = @student.person.email
+%p
+  %strong Género:
+  = @student.person.gender
+%p
+  %strong Estado:
+  = @student.person.state
+%p
+  %strong Turno:
+  = @student.turn
+.row
+  = link_to 'Editar', edit_student_path(@student), class: 'btn waves-effect waves-light col l4'
