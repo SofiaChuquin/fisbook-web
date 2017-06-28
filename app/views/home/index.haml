@@ -10,5 +10,13 @@
 	.fixed-action-btn
 		%a.btn-floating.btn-large.deep-purple{:href => "#{url_for(new_cycle_path)}"}
 			%i.large.material-icons add
-
+- if current_person.person.rol == 'Docente'
+	= provide(:title, "Cursos")
+	.row
+		- @courses.each do |c|
+			.col.s12.m6.l4
+				.card.orange.accent-4
+					.card-content
+						%span.card-title
+							= link_to "#{c.name}", c, class: 'white-text'
 

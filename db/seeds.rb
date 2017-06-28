@@ -43,7 +43,7 @@ executive1 = Executive.create(people_id: person8.id, position: 'Secretario')
 executive2 = Executive.create(people_id: person9.id, position: 'Director')
 executive3 = Executive.create(people_id: person10.id, position: 'Secretario')
 
-Cycle.destroy_all
+Cycle.delete_all
 
 cycle1 = Cycle.create(name: 'Primer Ciclo', semester: '1', year: 2017)
 cycle2 = Cycle.create(name: 'Segundo Ciclo', semester: '1', year: 2017)
@@ -59,7 +59,7 @@ cycle10 = Cycle.create(name: 'Décimo Ciclo', semester: '1', year: 2017)
 Course.delete_all
 
 course1 = Course.create(name: 'Inteligencia de Negocios', credits: 4, type_evaluation: 'A', hours: 5, teacher_id: teacher1.id, cycle_id: cycle9.id)
-course2 = Course.create(name: 'Desarrollo de Aplicaciones Empresariales', credits: 5, type_evaluation: 'A', hours: 6, teacher_id: teacher1.id, cycle_id: cycle9.id)
+course2 = Course.create(name: 'Aplicaciones Empresariales', credits: 5, type_evaluation: 'A', hours: 6, teacher_id: teacher1.id, cycle_id: cycle9.id)
 course3 = Course.create(name: 'Sistemas Expertos', credits: 5, type_evaluation: 'B', hours: 4, teacher_id: teacher2.id, cycle_id: cycle9.id)
 course4 = Course.create(name: 'E-business', credits: 3, type_evaluation: 'C', hours: 5, teacher_id: teacher3.id, cycle_id: cycle9.id)
 
@@ -72,7 +72,7 @@ enrollment4 = Enrollment.create(voucher: 'SIS951', active: true, student_id: stu
 
 Note.delete_all
 
-note1 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course1.id)
+note1 = Note.create!(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course1.id)
 note2 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course2.id)
 note3 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course3.id)
 note4 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course4.id)
