@@ -17,7 +17,7 @@ person4 = Person.create(lastname: 'Fernandez Ramirez',name: 'Miguel', dni: 12315
                         email: 'miguel@hotmail.com',gender: 'Masculino', state: 'Inactivo' , rol: 'Estudiante')
 person5 = Person.create(lastname: 'Hernandez Mendez',name: 'Andrea', dni: 12344676, phone: 123956798,
                         email: 'andrea@hotmail.com',gender: 'Femenino', state: 'Activo' , rol: 'Estudiante')
-person6 = Person.create(lastname: 'Palacios Pujaico',name: 'Juana', dni: 12342676, phone: 123456798,
+person6 = Person.create(lastname: 'Palacios Pujaico',name: 'Juana', dni: 12342888, phone: 123456798,
                         email: 'juana@hotmail.com',gender: 'Femenino', state: 'Inactivo' , rol: 'Estudiante')
 person7 = Person.create(lastname: 'Carrillo Pujaico',name: 'Julian', dni: 12340676, phone: 123456798,
                         email: 'julian@hotmail.com',gender: 'Masculino', state: 'Activo' , rol: 'Estudiante')
@@ -43,18 +43,18 @@ executive1 = Executive.create(people_id: person8.id, position: 'Secretario')
 executive2 = Executive.create(people_id: person9.id, position: 'Director')
 executive3 = Executive.create(people_id: person10.id, position: 'Secretario')
 
-Cycle.delete_all
+Cycle.destroy_all
 
-cycle1 = Cycle.create(name: 'Primer Ciclo', semester: 'I', year: 2017)
-cycle2 = Cycle.create(name: 'Segundo Ciclo', semester: 'I', year: 2017)
-cycle3 = Cycle.create(name: 'Tercer Ciclo', semester: 'I', year: 2017)
-cycle4 = Cycle.create(name: 'Cuarto Ciclo', semester: 'I', year: 2017)
-cycle5 = Cycle.create(name: 'Quinto Ciclo', semester: 'I', year: 2017)
-cycle6 = Cycle.create(name: 'Sexto Ciclo', semester: 'I', year: 2017)
-cycle7 = Cycle.create(name: 'Séptimo Ciclo', semester: 'I', year: 2017)
-cycle8 = Cycle.create(name: 'Octavo Ciclo', semester: 'I', year: 2017)
-cycle9 = Cycle.create(name: 'Noveno Ciclo', semester: 'I', year: 2017)
-cycle10 = Cycle.create(name: 'Décimo Ciclo', semester: 'I', year: 2017)
+cycle1 = Cycle.create(name: 'Primer Ciclo', semester: '1', year: 2017)
+cycle2 = Cycle.create(name: 'Segundo Ciclo', semester: '1', year: 2017)
+cycle3 = Cycle.create(name: 'Tercer Ciclo', semester: '1', year: 2017)
+cycle4 = Cycle.create(name: 'Cuarto Ciclo', semester: '1', year: 2017)
+cycle5 = Cycle.create(name: 'Quinto Ciclo', semester: '1', year: 2017)
+cycle6 = Cycle.create(name: 'Sexto Ciclo', semester: '1', year: 2017)
+cycle7 = Cycle.create(name: 'Séptimo Ciclo', semester: '1', year: 2017)
+cycle8 = Cycle.create(name: 'Octavo Ciclo', semester: '1', year: 2017)
+cycle9 = Cycle.create(name: 'Noveno Ciclo', semester: '1', year: 2017)
+cycle10 = Cycle.create(name: 'Décimo Ciclo', semester: '1', year: 2017)
 
 Course.delete_all
 
