@@ -1,3 +1,2 @@
-= provide(:title, "Editar nota")
-%h4= "#{@student.person.name} #{@student.person.lastname}"
+= provide(:title, "Editar nota de #{@student.person.name} #{@student.person.lastname}")
 = render 'form', note: @note

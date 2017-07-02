@@ -16,7 +16,7 @@
     %tbody
       - @students.each do |s|
         %tr
-          %td= s.person.name
+          %td= s.person.lastname + ' ' + s.person.name
           - if !s.notes.blank?
             %td= s.notes.first.first_exam
             %td= s.notes.first.second_exam
@@ -84,7 +84,7 @@
     %tbody
       - @students.each do |s|
         %tr
-          %td= s.person.name
+          %td= s.person.lastname + ' ' + s.person.name
           - if !s.notes.blank?
             %td= s.notes.first.first_exam
             %td= s.notes.first.second_exam

@@ -20,6 +20,7 @@ class ExecutivesController < ApplicationController
 
   # GET /executives/1/edit
   def edit
+    @z = "edit"
   end
 
   # POST /executives

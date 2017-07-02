@@ -31,9 +31,9 @@
       %li
         - if current_person.person.rol == 'Estudiante'
           %a.subheader Mis Cursos
-          %li
+          %ul
           - @courses.each do |c|
-            = link_to c.name, c
+            %li= link_to c.name, c
         - if current_person.person.rol == 'Docente'
           %a.subheader Mis Cursos
           %ul

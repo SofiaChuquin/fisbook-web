@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :load_sidebar
 
   def current_person
-    p current_user.inspect + '=================='
     if current_user
       person = Person.find_by(email: current_user.email)
       if person.rol == 'Estudiante'

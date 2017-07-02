@@ -24,8 +24,7 @@
         %td= note.unique_exam
         %td= note.defer_exam
         %td= note.average
-        %td= link_to 'Mostrar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
-        %td= link_to 'Editar', edit_course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id])
-        %td= link_to 'Eliminar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'Nueva Nota', new_course_student_note_path, class: 'accion'
+        %td= link_to 'Mostrar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), class: 'accion'
+        %td= link_to 'Editar', edit_course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), class: 'accion'
+        %td= link_to 'Eliminar', course_student_note_path(id: note.id, course_id: params[:course_id], student_id:params[:student_id]), method: :delete, data: { confirm: 'Are you sure?' }, class: 'accion'
+

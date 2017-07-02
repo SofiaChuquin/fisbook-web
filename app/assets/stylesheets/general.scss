@@ -8,6 +8,7 @@ p.alert,
   background-color: #4527A0;
   color: #fff;
   text-transform: none;
+  margin-bottom: 20px;
 }
 
 .btn waves-effect waves-light {
@@ -74,7 +75,7 @@ form {
   }
 }
 
-.login__links > a{
+.login__links > a {
   @extend .deep-purple-text, .text-darken-1;
 }
 
@@ -94,4 +95,12 @@ header, main, footer{
 
 header{
   margin-bottom: 40px;
+}
+
+.card {
+  height: 111px;
+}
+
+h3 {
+  margin: 0 0 1.168rem 0;
 }

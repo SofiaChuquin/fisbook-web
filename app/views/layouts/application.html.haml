@@ -9,8 +9,6 @@
     %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
   %body
     = javascript_include_tag 'application'
-    %p.notice= notice
-    %p.alert= alert
     - if !current_person.nil?
       = render 'layouts/sidebar'
       %header

@@ -49,7 +49,7 @@ class EnrollmentsController < ApplicationController
   # PATCH/PUT /enrollments/1
   # PATCH/PUT /enrollments/1.json
   def update
-    @cycle = Cycle.fin(params[:cycle_id])
+    @cycle = Cycle.find(params[:cycle_id])
 
     respond_to do |format|
       if @enrollment.update(enrollment_params)

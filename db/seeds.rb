@@ -56,12 +56,6 @@ cycle8 = Cycle.create(name: 'Octavo Ciclo', semester: '1', year: 2017)
 cycle9 = Cycle.create(name: 'Noveno Ciclo', semester: '1', year: 2017)
 cycle10 = Cycle.create(name: 'Décimo Ciclo', semester: '1', year: 2017)
 
-Course.delete_all
-
-course1 = Course.create(name: 'Inteligencia de Negocios', credits: 4, type_evaluation: 'A', hours: 5, teacher_id: teacher1.id, cycle_id: cycle9.id)
-course2 = Course.create(name: 'Aplicaciones Empresariales', credits: 5, type_evaluation: 'A', hours: 6, teacher_id: teacher1.id, cycle_id: cycle9.id)
-course3 = Course.create(name: 'Sistemas Expertos', credits: 5, type_evaluation: 'B', hours: 4, teacher_id: teacher2.id, cycle_id: cycle9.id)
-course4 = Course.create(name: 'E-business', credits: 3, type_evaluation: 'C', hours: 5, teacher_id: teacher3.id, cycle_id: cycle9.id)
 
 Enrollment.delete_all
 
@@ -70,21 +64,9 @@ enrollment2 = Enrollment.create(voucher: 'SIS345', active: true, student_id: stu
 enrollment3 = Enrollment.create(voucher: 'SIS678', active: true, student_id: student3.id, cycle_id: cycle9.id)
 enrollment4 = Enrollment.create(voucher: 'SIS951', active: true, student_id: student4.id, cycle_id: cycle9.id)
 
-Note.delete_all
+Course.delete_all
 
-note1 = Note.create!(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course1.id)
-note2 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course2.id)
-note3 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course3.id)
-note4 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student1.id, course_id: course4.id)
-note5 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student2.id, course_id: course1.id)
-note6 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student2.id, course_id: course2.id)
-note7 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student2.id, course_id: course3.id)
-note8 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student2.id, course_id: course4.id)
-note9 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student3.id, course_id: course1.id)
-note10 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student3.id, course_id: course2.id)
-note11 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student3.id, course_id: course3.id)
-note12 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student3.id, course_id: course4.id)
-note13 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student4.id, course_id: course1.id)
-note14 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student4.id, course_id: course2.id)
-note15 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student4.id, course_id: course3.id)
-note16 = Note.create(first_practice: 11, second_practice: 12, third_practice: 13, first_exam: 11, second_exam: 13, permanent: 14, student_id: student4.id, course_id: course4.id)
+course1 = Course.create(name: 'Inteligencia de Negocios', credits: 4, type_evaluation: 'A', hours: 5, teacher_id: teacher1.id, cycle_id: cycle9.id)
+course2 = Course.create(name: 'Aplicaciones Empresariales', credits: 5, type_evaluation: 'A', hours: 6, teacher_id: teacher1.id, cycle_id: cycle9.id)
+course3 = Course.create(name: 'Sistemas Expertos', credits: 5, type_evaluation: 'B', hours: 4, teacher_id: teacher2.id, cycle_id: cycle9.id)
+course4 = Course.create(name: 'E-business', credits: 3, type_evaluation: 'C', hours: 5, teacher_id: teacher3.id, cycle_id: cycle9.id)

@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @y = "edit"
   end
 
   # POST /students

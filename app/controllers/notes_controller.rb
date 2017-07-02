@@ -102,15 +102,15 @@ class NotesController < ApplicationController
         when 'A'
           average = (3 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 2 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 6
         when 'B'
-          average = 3 * (exam_average([note_params[:first_exam], note_params[:second_exam]]) + 3 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 7
+          average = (3 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 3 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 7
         when 'C'
-          average = 2 * (exam_average([note_params[:first_exam], note_params[:second_exam]]) + 4 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 7
+          average = (2 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 4 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 7
         when 'D'
-          average = 2 * (exam_average([note_params[:first_exam], note_params[:second_exam]]) + 3 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 6
+          average = (2 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 3 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 6
         when 'E'
-          average = 3 * (exam_average([note_params[:first_exam], note_params[:second_exam]]) + 0 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 4
+          average = (3 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 0 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 4
         when 'F'
-          average = 0 * (exam_average([note_params[:first_exam], note_params[:second_exam]]) + 4 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 5
+          average = (0 * exam_average([note_params[:first_exam], note_params[:second_exam]]) + 4 * practice_average([note_params[:first_practice], note_params[:second_practice], note_params[:third_practice]]) +  evaluate_number(note_params[:permanent])) / 5
         when 'Unico'
           average = evaluate_number(note_params[:unique_exam])
       end
